@@ -16,7 +16,7 @@
     - [📋 Prerequisites](#-prerequisites)
     - [📂 Setup](#-setup)
     - [📥 Installation](#-installation)
-    - [� Database](#-database)
+    - [💾 Database](#-database)
     - [💻 Usage](#-usage)
     - [🧪 Run tests](#-run-tests)
   - [👨‍🚀 Authors  ](#-authors--)
