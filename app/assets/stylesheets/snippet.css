@@ -3,6 +3,59 @@
   background-color: lightblue;
 }
 
+.page-container h2 {
+  margin-bottom: 2rem;
+}
+
+.snippet-data-bar {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.snippet-description {
+  padding: 0.5rem;
+  background-color: #fff;
+}
+
+.snippet-code {
+  display: block;
+  border: solid 1px;
+  border-radius: 4px;
+  background-color: #272727;
+  color: #fff;
+  padding: 1rem;
+}
+
+/* Card  */
+
+.snippet-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+}
+
+.snippet-card {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+}
+
+.snippet-card pre {
+  display: block;
+  height: 200px;
+  overflow: hidden;
+  margin: 0.5rem 0;
+}
+
+.snippet-card:hover {
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Form  */
+
 .snippet-form {
   width: 80%;
   margin: auto;

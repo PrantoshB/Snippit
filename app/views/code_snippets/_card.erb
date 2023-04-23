@@ -1,0 +1,10 @@
+<div class="snippet-card">
+    <h3><%= link_to snippet.title, code_snippet_path(snippet) %></h3>
+
+    <h4>by <%= snippet.user.name %></h4>
+    <pre class="snippet-code"><code><%= snippet.code %></code></pre>
+    <div>
+        <small><%= pluralize(snippet.stars_counter, 'star') %></small>
+        <small><%= pluralize(snippet.comments_counter, 'comment') %></small>
+    </div>
+</div>

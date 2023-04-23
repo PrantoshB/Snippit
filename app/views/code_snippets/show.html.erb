@@ -1,34 +1,38 @@
-<h2><%= @code_snippet.title %></h2>
-<p><%= @code_snippet.description %></p>
+<section class="page-container">
+  <h2><%= @code_snippet.title %></h2>
 
-<div>
-  <p>Author: <%= @code_snippet.user.name %></p>
-  <p>Language: <%= @code_snippet.language %></p>
-  <p>Stars: <%= @code_snippet.stars_counter %></p>
-  <p>Comments: <%= @code_snippet.comments_counter %></p>
-</div>
-
-<% if current_user == @code_snippet.user %>
-  <%= link_to "Edit this snippet", edit_code_snippet_path(@code_snippet) %>
-<% end %>
-
-<pre><code><%= @code_snippet.code %></code></pre>
-
-<div>
-  <%= link_to "Rate this snippet", new_code_snippet_rating_path(@code_snippet) %>
-  <%= link_to "Add a comment", new_code_snippet_comment_path(@code_snippet) %>
-</div>
-
-<div>
-  <h2>Comments</h2>
-  <% @code_snippet.comments.each do |comment| %>
-    <div>
-      <p><%= comment.user.name %></p>
-      <p><%= comment.content %></p>
+  <div class="snippet-card">
+    <div class="snippet-data-bar">
+      <p>👨‍💻: <%= @code_snippet.user.name %></p>
+      <p>🎫: <%= @code_snippet.language %></p>
+      <p>⭐: <%= @code_snippet.stars_counter || 0 %></p>
+      <p>💬: <%= @code_snippet.comments_counter || 0 %></p>
     </div>
-  <% end %>
 
-  <% if @code_snippet.comments.empty? %>
-    <p>No one has commented yet!</p>
-  <% end %>
-</div>
+    <p class="snippet-description"><%= @code_snippet.description %></p>
+
+    <pre class="snippet-code"><code><%= @code_snippet.code %></code></pre>
+
+    <div>
+      <%= link_to "Rate this snippet", new_code_snippet_rating_path(@code_snippet) %>
+      <%= link_to "Add a comment", new_code_snippet_comment_path(@code_snippet) %>
+      <% if current_user == @code_snippet.user %>
+        <%= link_to "Edit this snippet", edit_code_snippet_path(@code_snippet) %>
+      <% end %>
+    </div>
+  </div>
+
+  <div>
+    <h3><%= pluralize(@code_snippet.comments_counter, 'Comment') %></h2>
+    <% @code_snippet.comments.each do |comment| %>
+      <div>
+        <p><%= comment.user.name %></p>
+        <p><%= comment.content %></p>
+      </div>
+    <% end %>
+
+    <% if @code_snippet.comments.empty? %>
+      <p>No one has commented yet!</p>
+    <% end %>
+  </div>
+</section>
