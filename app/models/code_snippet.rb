@@ -7,6 +7,6 @@ class CodeSnippet < ApplicationRecord
   validates :description, presence: true, length: { maximum: 300 }
 
   def update_stars_counter
-    update(stars_counter: ratings.sum(:stars))
+    update(stars_counter: ratings.average(:stars))
   end
 end
