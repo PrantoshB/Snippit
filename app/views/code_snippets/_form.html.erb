@@ -1,0 +1,21 @@
+<%= form_with model: code_snippet do |form| %>
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+  <div>
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+  <div>
+    <%= form.label :code %>
+    <%= form.text_area :code %>
+  </div>
+  <div>
+    <%= form.label :language %>
+    <%= form.select :language, ['Bash', 'HTML', 'CSS','JavaScript','Ruby', 'Python'] %>
+  </div>
+  <div>
+    <%= form.submit "Submit" %>
+  </div>
+<% end %>

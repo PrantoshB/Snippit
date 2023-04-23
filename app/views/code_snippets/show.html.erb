@@ -8,11 +8,15 @@
   <p>Comments: <%= @code_snippet.comments_counter %></p>
 </div>
 
+<% if current_user == @code_snippet.user %>
+  <%= link_to "Edit this snippet", edit_code_snippet_path(@code_snippet) %>
+<% end %>
+
 <pre><code><%= @code_snippet.code %></code></pre>
 
 <div>
-  <%= link_to "Rate this snippet", new_snippet_rating_path(@code_snippet) %>
-  <%= link_to "Add a comment", new_snippet_comment_path(@code_snippet) %>
+  <%= link_to "Rate this snippet", new_code_snippet_rating_path(@code_snippet) %>
+  <%= link_to "Add a comment", new_code_snippet_comment_path(@code_snippet) %>
 </div>
 
 <div>

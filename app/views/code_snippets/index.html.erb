@@ -1,6 +1,6 @@
 <h2>All Snippets</h2>
 <ul>
     <% @code_snippets.each do |snippet| %>
-        <li><%= link_to snippet.title, snippet_path(snippet) %></li>
+        <li><%= link_to snippet.title, code_snippet_path(snippet) %></li>
     <% end %>
 </ul>
