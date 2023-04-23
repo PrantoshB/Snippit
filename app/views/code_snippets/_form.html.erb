@@ -1,21 +1,21 @@
 <%= form_with model: code_snippet do |form| %>
-  <div>
+  <div class="field">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, required: true, maxlength: 50, placeholder: "Enter the title of your snippet" %>
   </div>
-  <div>
+  <div class="field">
     <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.text_area :description, required: true, maxlength: 300, placeholder: "Enter a brief description of your snippet",  size: "100x10" %>
   </div>
-  <div>
-    <%= form.label :code %>
-    <%= form.text_area :code %>
-  </div>
-  <div>
+  <div class="field">
     <%= form.label :language %>
-    <%= form.select :language, ['Bash', 'HTML', 'CSS','JavaScript','Ruby', 'Python'] %>
+    <%= form.select :language, ['HTML', 'CSS','JavaScript','Ruby', 'Python','Bash'], { include_blank: 'Select language of your code'}, required: true %>
   </div>
-  <div>
+  <div class="field">
+    <%= form.label :code %>
+    <%= form.text_area :code, required: true, placeholder: "Paste your code here", size: "100x15" %>
+  </div>
+  <div class="action">
     <%= form.submit "Submit" %>
   </div>
 <% end %>
