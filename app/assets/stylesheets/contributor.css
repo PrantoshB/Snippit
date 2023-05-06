@@ -1,0 +1,91 @@
+.user-page-container {
+  margin: 3rem 5rem;
+}
+
+.users-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin: 1rem auto;
+}
+
+.user-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 3rem 1rem;
+  background-color: rgb(255, 255, 255);
+  margin: 1rem 0;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(86, 86, 86, 0.094);
+}
+
+.user-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 5px solid rgba(178, 172, 243, 0.397);
+}
+
+.user-bio {
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.user-value-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.user-values {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 99%;
+}
+
+.view-profile {
+  background-color: rgb(166, 158, 255);
+  color: rgb(255, 255, 255);
+  padding: 0.7rem 2rem;
+  border-radius: 20px;
+  border: none;
+}
+
+.value {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.value-name {
+  font-size: 0.8rem;
+}
+
+
+
+@media screen and (min-width: 1920px) {
+  .users-container {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .users-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .users-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .user-page-container {
+    margin: 2rem;
+  }
+}
