@@ -6,7 +6,21 @@ class CodeSnippet < ApplicationRecord
   validates :title, presence: true, length: { maximum: 50 }
   validates :description, presence: true, length: { maximum: 300 }
 
+  after_save :increase_counter
+  before_destroy :decrease_counter
+  
   def update_stars_counter
     update(stars_counter: ratings.average(:stars))
   end
+
+  private
+
+  def increase_counter
+    user.increment!(:code_snippets_counter)
+  end
+
+  def decrease_counter
+    user.decrement!(:code_snippets_counter)
+  end
+
 end

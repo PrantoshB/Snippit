@@ -1,0 +1,42 @@
+.comment-form {
+  margin-top: 2rem;
+  border-top: solid 1px #ccc;
+}
+
+.comment-form form {
+  display: flex;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.comment-form input[type='text'] {
+  padding: 0.5rem 1rem;
+  border-radius: 25rem;
+  width: 60%;
+  font-size: 1rem;
+  border: none;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.comment-form input[type='text']:focus {
+  outline: none;
+  box-shadow: 0 3px 8px #3335;
+}
+
+.comment-form input[type='submit'] {
+  background-color: cornflowerblue;
+  color: #fff;
+  border: none;
+  border-radius: 25rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in;
+}
+.comment-form input[type='submit']:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px #3335;
+}

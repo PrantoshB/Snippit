@@ -1,0 +1,6 @@
+<div class="comment-form">
+<%= form_for [snippet, comment], url: code_snippet_comments_path(snippet) do |form| %>
+    <%= form.text_field :content, required: true, placeholder: "Write your comment" %>
+    <%= form.submit "Add Comment"%>
+<% end %>
+</div>

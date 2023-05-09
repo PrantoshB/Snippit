@@ -4,7 +4,7 @@ class CodeSnippetsController < ApplicationController
   end
 
   def show
-    @code_snippet = CodeSnippet.find(params[:id])
+    @code_snippet = CodeSnippet.includes(:comments).find(params[:id])
   end
 
   def new
@@ -19,7 +19,7 @@ class CodeSnippetsController < ApplicationController
       redirect_to code_snippet_path(@code_snippet)
     else
       flash[:error] = 'Failed to upload snippet! Please try again'
-      render :new
+      redirect_to new_code_snippet_path
     end
   end
 
