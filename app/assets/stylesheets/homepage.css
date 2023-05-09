@@ -1,0 +1,32 @@
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: aliceblue;
+  padding: 0.25rem 1rem;
+}
+
+.main-header nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brand-title {
+  font-family: 'Trebuchet MS', 'Lucida Sans', Arial, sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: blueviolet;
+}
+
+.hero-section {
+  background-color: #333;
+  color: #fff;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+}

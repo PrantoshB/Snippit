@@ -1,0 +1,13 @@
+<% if notice %>
+    <div class="alert alert-success"><%= notice %></div>
+<% end %>
+<% if alert %>
+    <div class="alert alert-danger"><%= alert %></div>
+<% end %>
+<% flash.each do |key, value| %>
+  <% if key == "success" %>
+    <div class="alert alert-success"><strong>Success! </strong><%= value %></div>
+  <% elsif key == "error" %>
+    <div class="alert alert-danger"><strong>Error: </strong><%= value %></div>
+  <% end %>
+<% end %>
