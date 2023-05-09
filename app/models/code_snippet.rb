@@ -8,7 +8,7 @@ class CodeSnippet < ApplicationRecord
 
   after_save :increase_counter
   before_destroy :decrease_counter
-  
+
   def update_stars_counter
     update(stars_counter: ratings.average(:stars))
   end
@@ -22,5 +22,4 @@ class CodeSnippet < ApplicationRecord
   def decrease_counter
     user.decrement!(:code_snippets_counter)
   end
-
 end

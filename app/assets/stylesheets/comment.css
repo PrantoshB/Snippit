@@ -80,11 +80,18 @@
 
 .comment-item {
   display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
+  align-items: center;
+  gap: 2rem;
   padding: 1rem;
   background-color: #fff;
   border-radius: 4px;
+}
+
+.comment-info-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
   font-size: 0.8rem;
 }
 
@@ -109,9 +116,32 @@
   font-size: 1.3em;
 }
 
+.comment-voting-box {
+  display: flex;
+  flex-direction: column;
+  background-color: #eee4;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  text-align: center;
+  font-weight: 500;
+  color: blueviolet;
+}
+
+.comment-voting-box button {
+  width: 30px;
+  font-size: 1.5em;
+  color: #aaa;
+  border: none;
+  background: none;
+}
+
+.comment-voting-box button:hover,
+.comment-voting-box button:active {
+  transform: scale(1.2);
+}
+
 .del-btn {
   background: none;
-  border: none;
   color: crimson;
   padding: 0.25em;
   border: solid 1px crimson;
