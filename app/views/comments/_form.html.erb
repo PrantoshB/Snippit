@@ -1,0 +1,13 @@
+<div class="comment-form">
+<div class="comment-author-icon">
+<% if current_user.avatar_url %>
+    <img src="<%= current_user.avatar_url%>" >
+<% else %>
+    <span class="text-icon"><%= current_user.name[0].upcase %></span>
+<% end %>
+</div>
+<%= form_for [snippet, comment], url: code_snippet_comments_path(snippet) do |form| %>
+    <%= form.text_area :content, required: true, size: "10x2", placeholder: "Write your comment" %>
+    <%= form.submit "Add Comment"%>
+<% end %>
+</div>

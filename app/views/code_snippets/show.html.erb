@@ -20,21 +20,22 @@
         <%= link_to "Edit this snippet", edit_code_snippet_path(@code_snippet) %>
       <% end %>
     </div>
-  <%= render 'comment_form', snippet: @code_snippet, comment: Comment.new %>
   </div>
+  <%= render 'comments/form', snippet: @code_snippet, comment: Comment.new %>
 
-  <div>
-    <h3><%= pluralize(@code_snippet.comments_counter, 'Comment') %></h2>
-    <% @code_snippet.comments.each do |comment| %>
-      <div>
-        <p><%= comment.user.name %></p>
-        <p><%= comment.content %></p>
-      </div>
-    <% end %>
+  <section class="comment-section">
+    <h3><%= pluralize(@code_snippet.comments_counter, 'Comment') %></h3>
 
     <% if @code_snippet.comments.empty? %>
       <p>No one has commented yet!</p>
+    <% else %>
+      <section class="comment-list">
+        <% @code_snippet.comments.each do |comment| %>
+          <%= render 'comments/item', comment: comment %>
+        <% end %>
+      </section>
     <% end %>
-  </div>
+    
+  </section>
 
 </section>

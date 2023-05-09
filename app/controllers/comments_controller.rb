@@ -13,6 +13,16 @@ class CommentsController < ApplicationController
         end
     end
 
+    def destroy 
+        @snippet = CodeSnippet.find(params[:code_snippet_id])
+        @comment = @snippet.comments.find(params[:id])
+        if @comment.destroy
+            flash[:success] = "Your comment has been removed."
+            redirect_back(fallback_location: root_path)
+        end
+    end
+
+
     private 
 
     def comment_params
