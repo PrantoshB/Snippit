@@ -1,3 +1,4 @@
+<%= render 'public/header' %>
 <section class="page-container">
   <h2><%= @code_snippet.title %></h2>
 
@@ -14,25 +15,27 @@
     <pre class="snippet-code"><code><%= @code_snippet.code %></code></pre>
 
     <div>
-      <%= link_to "Rate this snippet", new_code_snippet_rating_path(@code_snippet) %>
-      <%= link_to "Add a comment", new_code_snippet_comment_path(@code_snippet) %>
+      <%= link_to "Rate this snippet", new_code_snippet_rating_path(@code_snippet), class: "btn btn-outline" %>
       <% if current_user == @code_snippet.user %>
         <%= link_to "Edit this snippet", edit_code_snippet_path(@code_snippet) %>
       <% end %>
     </div>
   </div>
+  <%= render 'comments/form', snippet: @code_snippet, comment: Comment.new %>
 
-  <div>
-    <h3><%= pluralize(@code_snippet.comments_counter, 'Comment') %></h2>
-    <% @code_snippet.comments.each do |comment| %>
-      <div>
-        <p><%= comment.user.name %></p>
-        <p><%= comment.content %></p>
-      </div>
-    <% end %>
+  <section class="comment-section">
+    <h3><%= pluralize(@code_snippet.comments_counter, 'Comment') %></h3>
 
     <% if @code_snippet.comments.empty? %>
       <p>No one has commented yet!</p>
+    <% else %>
+      <section class="comment-list">
+        <% @code_snippet.comments.each do |comment| %>
+          <%= render 'comments/item', comment: comment %>
+        <% end %>
+      </section>
     <% end %>
-  </div>
+    
+  </section>
+
 </section>

@@ -1,10 +1,12 @@
 class CodeSnippetsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @code_snippets = CodeSnippet.all
   end
 
   def show
-    @code_snippet = CodeSnippet.find(params[:id])
+    @code_snippet = CodeSnippet.includes(:comments).find(params[:id])
   end
 
   def new
@@ -19,7 +21,7 @@ class CodeSnippetsController < ApplicationController
       redirect_to code_snippet_path(@code_snippet)
     else
       flash[:error] = 'Failed to upload snippet! Please try again'
-      render :new
+      redirect_to new_code_snippet_path
     end
   end
 
@@ -31,12 +33,21 @@ class CodeSnippetsController < ApplicationController
     @code_snippet = CodeSnippet.find(params[:id])
 
     if @code_snippet.update(snippet_params)
-      flash[:success] = 'Snippet updated successfully!'
+      flash[:success] = 'Snippet has been uploaded.'
       redirect_to code_snippet_path(@code_snippet)
     else
-      flash[:error] = 'Failed to update snippet! Please try again'
+      errors = @code_snippet.errors.full_messages
+      flash[:error] = "#{errors}. Please try again."
       render :edit
     end
+  end
+
+  def destroy
+    @code_snippet = CodeSnippet.find(params[:id])
+    @code_snippet.destroy
+
+    flash[:success] = 'Your snippet has been removed.'
+    redirect_to code_snippets_path
   end
 
   private

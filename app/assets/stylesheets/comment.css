@@ -1,0 +1,155 @@
+.comment-form {
+  max-width: 800px;
+  margin: 1rem auto;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.comment-form form {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.comment-form textarea {
+  flex: 1;
+  font-size: 1rem;
+  border-radius: 4px;
+  border-color: #ccc5;
+  padding: 0.5rem 1rem;
+  background-color: #fff;
+  resize: none;
+  transition: all 0.3s ease;
+}
+
+.comment-form textarea:focus {
+  outline: none;
+  box-shadow: 0 3px 8px #3335;
+}
+
+.comment-form input[type='submit'] {
+  background-color: cornflowerblue;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in;
+}
+
+.comment-form input[type='submit']:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px #3335;
+}
+
+.comment-author-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: blueviolet;
+  color: #fff;
+  font-size: 1.8rem;
+  border: solid 2px orchid;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.comment-author-icon img {
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Comment List  */
+.comment-section h3 {
+  margin-bottom: 1rem;
+}
+
+.comment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.comment-item {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+.comment-info-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.8rem;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.comment-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.comment-author-name {
+  font-weight: 500;
+  font-size: 1.2em;
+}
+
+.comment-body {
+  padding: 0.25rem;
+  font-size: 1.3em;
+}
+
+.comment-voting-box {
+  display: flex;
+  flex-direction: column;
+  background-color: #eee4;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  text-align: center;
+  font-weight: 500;
+  color: blueviolet;
+}
+
+.comment-voting-box button {
+  width: 30px;
+  font-size: 1.5em;
+  color: #aaa;
+  border: none;
+  background: none;
+}
+
+.comment-voting-box button:hover,
+.comment-voting-box button:active {
+  transform: scale(1.2);
+}
+
+.del-btn {
+  background: none;
+  color: crimson;
+  padding: 0.25em;
+  border: solid 1px crimson;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+}
+
+.del-btn:hover {
+  background: crimson;
+  color: #fff;
+}
