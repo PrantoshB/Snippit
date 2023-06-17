@@ -3,7 +3,7 @@
 
     <h4>by <%= snippet.user.name %></h4>
     
-    <pre><code class=<%= "language-javascript" %>><%= snippet.code %></code></pre>
+    <pre><code class=<%= "language-" + snippet.language %>><%= snippet.code %></code></pre>
     <div>
         <small><%= pluralize(snippet.stars_counter, 'star') %></small>
         <small><%= pluralize(snippet.comments_counter, 'comment') %></small>
