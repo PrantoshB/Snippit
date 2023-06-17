@@ -2,7 +2,8 @@
     <h3><%= link_to snippet.title, code_snippet_path(snippet), class: "link" %></h3>
 
     <h4>by <%= snippet.user.name %></h4>
-    <pre class="snippet-code"><code><%= snippet.code %></code></pre>
+    
+    <pre><code class=<%= "language-javascript" %>><%= snippet.code %></code></pre>
     <div>
         <small><%= pluralize(snippet.stars_counter, 'star') %></small>
         <small><%= pluralize(snippet.comments_counter, 'comment') %></small>
