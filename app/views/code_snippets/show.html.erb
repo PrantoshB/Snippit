@@ -12,7 +12,7 @@
 
     <p class="snippet-description"><%= @code_snippet.description %></p>
 
-    <pre class="snippet-code"><code><%= @code_snippet.code %></code></pre>
+    <pre><code class=<%= "language-" + @code_snippet.language %>><%= @code_snippet.code %></code></pre>
 
     <div>
       <%= link_to "Rate this snippet", new_code_snippet_rating_path(@code_snippet), class: "btn btn-outline" %>
