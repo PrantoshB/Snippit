@@ -20,6 +20,9 @@ button {
 }
 
 /* Common Styles  */
+.page-container {
+  padding: 2rem;
+}
 
 /* Buttons  */
 

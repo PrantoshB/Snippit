@@ -1,62 +1,52 @@
-.page-container {
-  padding: 2rem;
-}
-
-.page-container h2 {
-  margin-bottom: 2rem;
-}
-
-.snippet-data-bar {
-  display: flex;
-  gap: 1rem;
-  margin: 1rem 0;
-}
-
-.snippet-description {
-  padding: 0.5rem;
-  background-color: #fff;
-}
-
-/* .snippet-code {
-  display: block;
-  border: solid 1px;
-  border-radius: 4px;
-  background-color: #272727;
-  color: #fff;
-  padding: 1rem;
-} */
-
-/* Card  */
+/* *** Snippet Index Page  */
 
 .snippet-grid {
-  width: 100%;
+  width: 70%;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr;
   gap: 0.5rem;
 }
 
-.snippet-card {
+.snippet-item {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+.snippet-item pre {
+  width: 100%;
+  overflow: auto;
+}
+
+/* *** Snippet Show Page  */
+
+.snippet {
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 1rem;
 }
 
-/* .snippet-card pre {
-  display: block;
-  margin: 0.5rem 0;
-} */
-
-/* .snippet-grid .snippet-card pre {
-  height: 200px;
-  overflow-y: auto;
-} */
-
-.snippet-card:hover {
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+.snippet__title {
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
 }
 
-/* Form  */
+.snippet__meta {
+  display: flex;
+  gap: 1.2rem;
+  margin: 1rem 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.snippet__description {
+  padding: 0.5rem;
+  background-color: #fff;
+}
+
+/* *** Snippet Form  */
 
 .snippet-form {
   width: 80%;
