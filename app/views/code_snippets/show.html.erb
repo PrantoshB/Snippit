@@ -1,18 +1,17 @@
 <%= render 'public/header' %>
 <section class="page-container">
-  <h2><%= @code_snippet.title %></h2>
-
-  <div class="snippet-card">
-    <div class="snippet-data-bar">
-      <p>👨‍💻: <%= @code_snippet.user.name %></p>
-      <p>🎫: <%= @code_snippet.language %></p>
-      <p>⭐: <%= @code_snippet.stars_counter || 0 %></p>
-      <p>💬: <%= @code_snippet.comments_counter || 0 %></p>
+  <div class="snippet">
+    <h2 class="snippet__title"><%= @code_snippet.title %></h2>
+    <div class="snippet__meta">
+      <p><i class="fa-solid fa-user-astronaut"  style="color: #9C27B0;"></i> <%= @code_snippet.user.name %></p>
+      <p><i class="fas fa-file-code" style="color: #007BFF;"></i> <%= @code_snippet.language %></p>
+      <p><i class="fas fa-star" style="color: #FFC107;"></i> <%= @code_snippet.stars_counter || 0 %></p>
+      <p><i class="fas fa-comments" style="color: #28A745;"></i> <%= @code_snippet.comments_counter || 0 %></p>
     </div>
 
-    <p class="snippet-description"><%= @code_snippet.description %></p>
+    <p class="snippet__description"><%= @code_snippet.description %></p>
 
-    <pre class="snippet-code"><code><%= @code_snippet.code %></code></pre>
+    <pre><code class=<%= "language-" + @code_snippet.language %>><%= @code_snippet.code %></code></pre>
 
     <div>
       <%= link_to "Rate this snippet", new_code_snippet_rating_path(@code_snippet), class: "btn btn-outline" %>

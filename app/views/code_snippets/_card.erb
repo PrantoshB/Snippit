@@ -1,10 +1,29 @@
-<div class="snippet-card">
-    <h3><%= link_to snippet.title, code_snippet_path(snippet), class: "link" %></h3>
+<div class="snippet-item">
+    <header class="snippet-item__header">
+        <div class="author-icon">
+            <% if snippet.user.avatar_url %>
+                <img src="<%= snippet.user.avatar_url%>">
+            <% else %>
+                <span><%= snippet.user.name[0].upcase %></span>
+            <% end %>
+        </div>
 
-    <h4>by <%= snippet.user.name %></h4>
-    <pre class="snippet-code"><code><%= snippet.code %></code></pre>
+        <h3><%= link_to snippet.title, code_snippet_path(snippet), class: "link snippet-item__link" %></h3>
+        <span class="link-arrow">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </span>
+        <button class="snippet-item__menu-btn"> 
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+        </button>
+    </header>
     <div>
-        <small><%= pluralize(snippet.stars_counter, 'star') %></small>
-        <small><%= pluralize(snippet.comments_counter, 'comment') %></small>
+        <small><%= snippet.created_at.strftime("%b %e, %Y") %></small>
+        <i class="fa-solid fa-code-commit"></i>
+        <small><%= snippet.language %></small>
+    </div>
+    <pre><code class=<%= "language-" + snippet.language %>><%= snippet.code %></code></pre>
+    <div class="snippet-item__counters">
+        <p><i class="fa-solid fa-star" style="color: orange;"></i> <%= snippet.stars_counter || 0 %> </p>
+        <p><i class="fa-solid fa-message" style="color: skyblue;"></i> <%= snippet.comments_counter || 0 %> </p>
     </div>
 </div>

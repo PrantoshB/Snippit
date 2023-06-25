@@ -1,3 +1,5 @@
+<% languages = ['HTML', 'CSS', 'JavaScript', 'Ruby', 'Python', 'Bash', 'TypeScript', 'PHP', 'GDScript', 'Git', 'Perl', 'Lua', 'SQL', 'Liquid', 'C#', 'C', 'C++', 'Rust', 'SASS', 'SCSS', 'GO', 'GraphQL', 'Arduino'] %>
+
 <%= form_with model: code_snippet do |form| %>
   <div class="field">
     <%= form.label :title %>
@@ -9,7 +11,7 @@
   </div>
   <div class="field">
     <%= form.label :language %>
-    <%= form.select :language, ['HTML', 'CSS','JavaScript','Ruby', 'Python','Bash'], { include_blank: 'Select language of your code'}, required: true %>
+    <%= form.select :language, languages, { include_blank: 'Select language of your code'}, required: true %>
   </div>
   <div class="field">
     <%= form.label :code %>
