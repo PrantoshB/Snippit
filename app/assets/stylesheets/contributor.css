@@ -27,7 +27,7 @@
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  border: 5px solid rgba(178, 172, 243, 0.397);
+  box-shadow: 0 5px 15px rgba(86, 86, 86, 0.607);
 }
 
 .user-bio {
@@ -64,6 +64,67 @@
 
 .value-name {
   font-size: 0.8rem;
+}
+
+.contributor {
+  display: flex;
+  position: relative;
+  margin: 3% 10%;
+  width: 80%;
+}
+
+.edit-profile {
+  position: absolute;
+  top: 17%;
+  left: 10rem;
+  background: rgb(106, 106, 244);
+  background: linear-gradient(90deg, rgba(106, 106, 244, 1) 35%, rgba(141, 82, 195, 1) 100%);
+  color: rgb(255, 255, 255);
+  padding: 1rem;
+  border-radius: 50%;
+  box-shadow: 0 10px 15px rgba(89, 88, 88, 0.729);
+}
+
+.contributor-details-image {
+  width: 12rem;
+  height: 12rem;
+}
+
+.contributor-title {
+  margin-top: 10%;
+}
+
+.contributor-left {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+}
+
+.contributor-right {
+  width: 75%;
+  display: grid;
+  gap: 2rem;
+}
+
+.contributor-snippet-card {
+  display: flex;
+  flex-direction: column;
+  padding: 2%;
+  height: 20rem;
+  background: white;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+
+.contributor-snippet-card:hover {
+  box-shadow: 10px 18px 25px rgba(140, 98, 143, 0.29);
+}
+
+.contributor-snippet-header h3,
+.link-arrow,
+.snippet-item__menu-btn {
+  font-size: 1.1rem;
 }
 
 @media screen and (min-width: 1920px) {

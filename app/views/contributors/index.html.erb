@@ -5,6 +5,7 @@
   
   <div class="users-container">
     <% @contributors.each do |user| %>
+    <%= link_to contributor_path(user) do %>
     <div class="user-card">
       <img src="<%= user.avatar_url%>" class="user-image">
         <h3><%= user.name%></h3>
@@ -39,6 +40,7 @@
           View Profile
         </button>
     </div>
+    <% end %>
     <% end %>
   </div>
 </div>
