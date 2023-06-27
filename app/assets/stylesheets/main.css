@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 18px;
   background-color: rgb(241, 243, 250);
 }
@@ -58,33 +58,32 @@ button {
   font-weight: 700;
   line-height: 1.5;
   text-align: center;
-  text-transform: uppercase;
   text-decoration: none;
+  background-color: transparent;
   cursor: pointer;
-  border-radius: 0.25rem;
-  border: solid 1px;
-  transition: all 0.2s ease-in-out;
 }
 
 .btn-primary {
-  background-color: blueviolet;
-  border-color: blueviolet;
+  background-color: cornflowerblue;
+  border-color: cornflowerblue;
   color: #fff;
 }
 
 .btn-primary:hover {
-  background-color: darkblue;
+  background-color: blueviolet;
 }
 
 .btn-outline {
   background-color: transparent;
-  border-color: blueviolet;
-  color: blueviolet;
+  border-color: #333;
+  color: #333;
 }
 
 .btn-outline:hover {
-  background-color: blueviolet;
+  background-color: #333;
   color: #fff;
+  transform: translateY(-2px);
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
 }
 
 /* Alert messages  */

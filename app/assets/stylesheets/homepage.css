@@ -1,23 +1,62 @@
+/* *** Header Bar  */
+
 .main-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: aliceblue;
+  background-color: #fff;
+  color: #333;
   padding: 0.25rem 1rem;
-  box-shadow: 0 1px 3px #ccc5;
 }
 
-.main-header nav {
+.brand {
+  font-family: Helvetica, sans-serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  text-transform: lowercase;
+  margin-right: 3rem;
+}
+
+.nav {
+  flex: 1;
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
-.brand-title {
-  font-family: 'Trebuchet MS', 'Lucida Sans', Arial, sans-serif;
-  font-size: 3rem;
-  font-weight: 700;
-  color: blueviolet;
+.nav__ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0.5rem;
+}
+
+.nav__link {
+  color: #555;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.nav__link:hover {
+  color: #000;
+}
+
+.btn-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.nav-btn {
+  border: solid 1px transparent;
+  border-radius: 10px;
+  transition: all 0.2s ease-in;
+}
+
+.nav-btn:hover {
+  border-color: #333;
+  transform: translateY(-2px);
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
 }
 
 .hero-section {
