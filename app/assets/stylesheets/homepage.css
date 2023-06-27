@@ -98,3 +98,36 @@
   gap: 1rem;
   padding: 1rem;
 }
+
+/* *** Footer section  */
+.footer {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  background-color: #000;
+  color: #fff;
+  padding: 3rem 2rem;
+}
+
+.footer > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+
+.social-bar {
+  display: flex;
+  font-size: 2rem;
+  gap: 1rem;
+}
+
+.footer-nav {
+  padding-left: 3rem;
+}
+
+.footer-nav__ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  list-style: none;
+}
