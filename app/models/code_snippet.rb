@@ -13,6 +13,10 @@ class CodeSnippet < ApplicationRecord
     update(stars_counter: ratings.average(:stars))
   end
 
+  def self.most_popular(limit = 3)
+    order(stars_counter: :asc).limit(limit)
+  end
+
   private
 
   def increase_counter

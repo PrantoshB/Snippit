@@ -9,4 +9,8 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   validates :name, presence: true, uniqueness: { case_sensitive: false }
+
+  def self.top_contributors(limit = 3)
+    order(code_snippets_counter: :desc).limit(limit)
+  end
 end

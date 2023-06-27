@@ -60,13 +60,41 @@
 }
 
 .hero-section {
-  background-color: #333;
-  color: #fff;
-  min-height: 50vh;
+  background-color: #fff;
+  min-height: 80vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.hero__content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  padding-left: 5rem;
+  gap: 1rem;
+  font-size: 1.5rem;
+  line-height: 1.4;
+}
+
+.hero__image {
+  width: 80%;
+}
+
+/* *** Feature section  */
+.feature-section {
+  background-color: #eee;
+  padding-top: 4rem;
+}
+
+.feature__title {
   text-align: center;
-  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding: 1rem;
 }
