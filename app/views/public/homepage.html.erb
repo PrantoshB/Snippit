@@ -10,6 +10,33 @@
   </div>
 </section>
 <section class="feature-section">
+  <h2 class="feature__title">Enhance Your Coding Experience</h2>
+  <div class="feature-grid">
+    <div class="grid-item">
+      <div class="feature-card">
+        <i class="fas fa-code" style="color: green"></i>
+        <h3>Code Snippet Sharing</h3>
+        <p>Share your code snippets with the community. Easily upload, organize, and showcase your solutions to inspire and educate fellow developers.</p>
+      </div>
+    </div>
+    <div class="grid-item">
+      <div class="feature-card">
+        <i class="fas fa-lightbulb" style="color: gold"></i>
+        <h3>Inspiration and Learning</h3>
+        <p>Explore an extensive collection of code snippets contributed by the community. Gain insights, learn new techniques, and discover programming possibilities.</p>
+      </div>
+    </div>
+    <div class="grid-item">
+      <div class="feature-card">
+        <i class="fas fa-comments"  style="color: skyblue"></i>
+        <h3>Collaborative Feedback</h3>
+        <p>Engage with the community by providing feedback and comments on code snippets. Foster a supportive environment for learning and improvement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<%# Snippets  %>
+<section class="feature-section">
   <h2 class="feature__title">Popular Snippets</h2>
   <div class="feature-grid">
     <% @snippets.each do |snippet| %>
@@ -17,6 +44,7 @@
     <% end %>
   </div>
 </section>
+<%# Contributors %>
 <section class="feature-section">
   <h2 class="feature__title">Top Contributors</h2>
   <div class="feature-grid">

@@ -95,6 +95,7 @@
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  align-items: stretch;
   gap: 1rem;
   padding: 1rem;
 }
@@ -130,4 +131,28 @@
   flex-direction: column;
   gap: 1.5rem;
   list-style: none;
+}
+
+.feature-card {
+  background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  line-height: 1.3;
+  text-align: center;
+  align-items: center;
+  height: 100%;
+}
+
+.feature-card i {
+  font-size: 2rem;
+}
+
+.feature-card p {
+  color: #555;
+  font-size: 1.1rem;
 }
