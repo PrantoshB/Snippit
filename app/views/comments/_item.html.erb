@@ -1,31 +1,34 @@
-<div class="comment-item">
-    <div class="comment-voting-box">
-        <button type="button">+</button>
-        <span>5</span>
-        <button type="button">-</button>
-    </div>
-    <div class="comment-info-box">
-        <div class="comment-header">
-            <div class="comment-meta">
-                <div class="author-icon">
-                    <% if comment.user.avatar_url %>
-                        <img src="<%= comment.user.avatar_url%>">
-                    <% else %>
-                        <span><%= comment.user.name[0].upcase %></span>
-                    <% end %>
-                </div>
-                <p class="comment-author-name"><%= comment.user.name %></p>
-                <p class="comment-time"><%= comment.created_at %></p>
-            </div>
-            <div class="comment-actions">
-                <% if current_user == comment.user %>
-                    <%= button_to "❌ Delete", code_snippet_comment_path(comment.code_snippet, comment), method: :delete, class: "del-btn" %>
-                <% end %>
-            </div>
+<div class="comment">
+  <div class="comment__voting">
+    <button type="button">+</button>
+    <span>5</span>
+    <button type="button">-</button>
+  </div>
+  <div class="comment__content">
+    <header class="comment__header">
+      <div class="comment__infos">
+        <div class="author-icon">
+          <% if comment.user.avatar_url %>
+            <img src="<%= comment.user.avatar_url%>">
+          <% else %>
+            <span><%= comment.user.name[0].upcase %></span>
+          <% end %>
         </div>
-
-        <div class="comment-body">
-            <p><%= comment.content %></p>
+        <div>
+          <%= link_to contributor_path(comment.user) do %>
+            <p class="comment__author"><%= comment.user.name %></p>
+          <% end%>
+          <p class="comment__date"><%= comment.created_at.strftime("%b %e, %Y") %> </p>
         </div>
+      </div>
+      <div class="comment__actions">
+        <% if current_user == comment.user %>
+          <%= button_to "❌ Delete", code_snippet_comment_path(comment.code_snippet, comment), method: :delete, class: "del-btn" %>
+        <% end %>
+      </div>
+    </header>
+    <div class="comment__body">
+      <p><%= comment.content %></p>
     </div>
+  </div>
 </div>

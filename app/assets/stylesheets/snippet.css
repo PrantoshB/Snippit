@@ -96,7 +96,9 @@
 
 .snippet-container {
   background-color: #fff;
-  padding: 1rem;
+  padding: 2rem;
+  display: grid;
+  gap: 1rem;
 }
 
 .snippet-container__header {
@@ -125,10 +127,6 @@
 
 /* Snippet Section */
 
-.snippet {
-  padding: 1rem;
-}
-
 .snippet__header {
   display: grid;
   gap: 0.5rem;
@@ -141,8 +139,8 @@
 
 .snippet__metadata {
   display: flex;
-  font-size: 0.8rem;
-  color: #777;
+  font-size: var(--fontSmall);
+  color: var(--gray);
 }
 
 .snippet__metadata > i {
@@ -158,8 +156,8 @@
   display: flex;
   gap: 1rem;
   margin: 2rem 0 0.5rem;
-  color: #555;
-  font-size: 0.9rem;
+  color: var(--gray);
+  font-size: var(--fontSmall);
 }
 
 /* Snippet actions container with rounded border */
@@ -168,7 +166,7 @@
   align-items: center;
   justify-content: space-around;
   padding: 1rem;
-  border: solid 1px #aaa5;
+  border: solid 1px var(--grayLight);
   border-radius: 8px;
 }
 
@@ -222,7 +220,7 @@
   padding: 0.5rem;
   background-color: #fff;
   border-radius: 8px;
-  border: solid 1px #aaa5;
+  border: solid 1px var(--grayLight);
   transition: box-shadow 0.2s ease-in;
 }
 
