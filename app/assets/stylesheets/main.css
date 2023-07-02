@@ -36,10 +36,10 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: blueviolet;
+  background-color: slateblue;
   color: #fff;
   font-size: 1.8rem;
-  border: solid 2px orchid;
+  border: solid 1px slateblue;
   border-radius: 50%;
   overflow: hidden;
 }

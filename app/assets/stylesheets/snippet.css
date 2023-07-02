@@ -88,29 +88,175 @@
 
 /* *** Snippet Show Page  */
 
-.snippet {
+.snippet-page {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+}
+
+.snippet-container {
   background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 1rem;
 }
 
+.snippet-container__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.back-btn,
+.edit-btn {
+  display: block;
+  border: solid 1px #aaa5;
+  border-radius: 4px;
+  padding: 0.25rem;
+  color: #333;
+  min-width: 100px;
+  text-align: center;
+  transition: all 0.2s ease-in;
+}
+
+.back-btn:hover,
+.edit-btn:hover {
+  box-shadow: 3px 6px 10px -5px #aaa5;
+  transform: translateY(-1px);
+}
+
+/* Snippet Section */
+
+.snippet {
+  padding: 1rem;
+}
+
+.snippet__header {
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
 .snippet__title {
-  margin-bottom: 1.5rem;
   font-size: 1.8rem;
 }
 
-.snippet__meta {
+.snippet__metadata {
   display: flex;
-  gap: 1.2rem;
-  margin: 1rem 0.5rem;
-  font-size: 1.2rem;
-  font-weight: 500;
+  font-size: 0.8rem;
+  color: #777;
+}
+
+.snippet__metadata > i {
+  margin: 0 0.2rem 0 0.5rem;
 }
 
 .snippet__description {
   padding: 0.5rem;
   background-color: #fff;
+}
+
+.snippet__metrics {
+  display: flex;
+  gap: 1rem;
+  margin: 2rem 0 0.5rem;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+/* Snippet actions container with rounded border */
+.snippet__actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1rem;
+  border: solid 1px #aaa5;
+  border-radius: 8px;
+}
+
+.snippet__btn {
+  display: block;
+  flex: 1;
+  text-align: center;
+  background-color: #fff;
+  color: #333;
+  transition: all 0.2s;
+}
+
+.snippet__btn i {
+  font-size: 1.2em;
+  transition: all 0.2s;
+}
+
+.snippet__btn:hover {
+  color: #666;
+}
+
+.snippet__btn:hover i {
+  transform: scale(1.1);
+}
+
+.star-btn i {
+  color: gold;
+}
+
+.comment-btn i {
+  color: cyan;
+}
+
+.bookmark-btn i {
+  color: orangered;
+}
+
+.copy-btn i {
+  color: chartreuse;
+}
+
+/* Sidebar  */
+
+.snippet-sidebar {
+  min-width: 300px;
+}
+
+.snippetAuthorCard {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.5rem;
+  background-color: #fff;
+  border-radius: 8px;
+  border: solid 1px #aaa5;
+  transition: box-shadow 0.2s ease-in;
+}
+
+.snippetAuthorCard:hover {
+  box-shadow: 3px 15px 20px #ccc3;
+}
+
+.snippetAuthorCard > span {
+  font-size: 0.8rem;
+  color: #aaa;
+  font-weight: 500;
+}
+
+.snippetAuthorCard__figure {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.snippetAuthorCard__figure img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.snippetAuthorCard__name {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.snippetAuthorCard__bio {
+  font-size: 0.9rem;
+  color: #555;
 }
 
 /* *** Snippet Form  */

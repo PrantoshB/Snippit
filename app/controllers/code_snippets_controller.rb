@@ -6,7 +6,7 @@ class CodeSnippetsController < ApplicationController
   end
 
   def show
-    @code_snippet = CodeSnippet.includes(:comments).find(params[:id])
+    @snippet = CodeSnippet.includes(:comments).find(params[:id])
   end
 
   def new
