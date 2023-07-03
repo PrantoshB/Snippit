@@ -11,6 +11,7 @@
 .snippet-item {
   position: relative;
   background-color: #fff;
+  border: var(--border-light);
   padding: 1rem;
   border-radius: 4px;
   max-height: 300px;
@@ -20,7 +21,7 @@
 }
 
 .snippet-item:hover {
-  box-shadow: 10px 18px 25px rgba(140, 98, 143, 0.29);
+  box-shadow: var(--shadow-hover);
 }
 
 .snippet-item__header {
@@ -34,12 +35,11 @@
   top: 1rem;
   right: 3rem;
   display: block;
-  background-color: cornflowerblue;
-  padding: 0.25rem 0.5rem;
-  border-radius: 5px;
+  background-color: var(--accent-color-1);
+  padding: 0.5rem;
+  border-radius: 4px;
   color: #f0f0f0;
   opacity: 0;
-  margin-left: auto;
   transition: all 0.2s ease-in;
 }
 
@@ -95,7 +95,8 @@
 }
 
 .snippet-container {
-  background-color: #fff;
+  border: var(--border-light);
+  border-radius: 8px;
   padding: 2rem;
   display: grid;
   gap: 1rem;
@@ -121,7 +122,7 @@
 
 .back-btn:hover,
 .edit-btn:hover {
-  box-shadow: 3px 6px 10px -5px #aaa5;
+  box-shadow: var(--shadow-hover);
   transform: translateY(-1px);
 }
 
@@ -160,13 +161,13 @@
   font-size: var(--fontSmall);
 }
 
-/* Snippet actions container with rounded border */
+/* Snippet actions container */
 .snippet__actions {
   display: flex;
   align-items: center;
   justify-content: space-around;
   padding: 1rem;
-  border: solid 1px var(--grayLight);
+  border: var(--border-light);
   border-radius: 8px;
 }
 
@@ -193,19 +194,19 @@
 }
 
 .star-btn i {
-  color: gold;
+  color: var(--golden-yellow);
 }
 
 .comment-btn i {
-  color: cyan;
+  color: var(--vibrant-blue);
 }
 
 .bookmark-btn i {
-  color: orangered;
+  color: var(--bold-pink);
 }
 
 .copy-btn i {
-  color: chartreuse;
+  color: var(--fresh-green);
 }
 
 /* Sidebar  */
@@ -220,12 +221,12 @@
   padding: 0.5rem;
   background-color: #fff;
   border-radius: 8px;
-  border: solid 1px var(--grayLight);
+  border: var(--border-light);
   transition: box-shadow 0.2s ease-in;
 }
 
 .snippetAuthorCard:hover {
-  box-shadow: 3px 15px 20px #ccc3;
+  box-shadow: var(--shadow-hover);
 }
 
 .snippetAuthorCard > span {
