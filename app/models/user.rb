@@ -16,7 +16,7 @@ class User < ApplicationRecord
     order(code_snippets_counter: :desc).limit(limit)
   end
 
-  private 
+  private
 
   def set_default_values
     self.code_snippets_counter ||= 0

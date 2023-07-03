@@ -1,7 +1,6 @@
 :root {
   --accent-color-1: #007bff;
   --accent-color-2: #51a351;
-
   --lightGray: #e4e7f0;
   --dark: #050c26;
   --gray: #697785;
@@ -9,24 +8,19 @@
   /* Icon Colors */
   --vibrant-blue: #42a5f5;
   --fresh-green: #7ed321;
-  --golden-yellow: #ffcc00;
+  --golden-yellow: #fc0;
   --bold-pink: #ff4081;
-
   --green-100: #80d8a1;
   --green-200: #43a047;
   --green-300: #2e7d32;
-
   --orange-100: #ffe082;
   --orange-200: #ffb74d;
   --orange-300: #f57c00;
-
   --red-100: #ef9a9a;
   --red-200: #e57373;
   --red-300: #d32f2f;
-
   --fontSmall: 0.9rem;
   --fontNormal: 1.1rem;
-
   --shadow-hover: 3px 6px 10px -5px #aaa5;
   --shadow-inset: inset 0 2px 5px var(--lightGray);
   --border-light: solid 1px var(--lightGray);
