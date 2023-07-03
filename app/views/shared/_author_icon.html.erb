@@ -1,0 +1,7 @@
+<div class="author-icon">
+  <% if author.avatar_url %>
+    <img src="<%= author.avatar_url%>">
+  <% else %>
+    <span><%= author.name[0].upcase %></span>
+  <% end %>
+</div>

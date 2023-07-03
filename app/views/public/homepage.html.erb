@@ -1,112 +1,92 @@
-<%= render 'header' %>
-<section class="hero-section">
-  <div class="hero__content">
-    <h2 class="hero__title">Write better code with Code Snippets</h2>
-    <p>Find and share code snippets to help you solve problems and save time. Join our community of developers today.</p>
-    <%= link_to "Browse Snippets", code_snippets_path, class: "btn nav-btn btn-outline" %>
-  </div>
-  <div>
-    <%= image_tag 'programming.jpg', class: "hero__image" %>
-  </div>
-</section>
-<section class="feature-section">
-  <h2 class="feature__title">Enhance Your Coding Experience</h2>
-  <div class="feature-grid">
-    <div class="grid-item">
-      <div class="feature-card">
-        <i class="fas fa-code" style="color: var(--fresh-green)"></i>
-        <h3>Code Snippet Sharing</h3>
-        <p>Share your code snippets with the community. Easily upload, organize, and showcase your solutions to inspire and educate fellow developers.</p>
-      </div>
+<main>
+  <section class="hero-section">
+    <div class="hero__content">
+      <h2 class="hero__title">Write better code with Code Snippets</h2>
+      <p>Find and share code snippets to help you solve problems and save time. Join our community of developers today.</p>
+      <%= link_to "Browse Snippets", code_snippets_path, class: "btn nav-btn btn-outline" %>
     </div>
-    <div class="grid-item">
-      <div class="feature-card">
-        <i class="fas fa-lightbulb" style="color: var(--golden-yellow)"></i>
-        <h3>Inspiration and Learning</h3>
-        <p>Explore an extensive collection of code snippets contributed by the community. Gain insights, learn new techniques, and discover programming possibilities.</p>
-      </div>
+    <div>
+      <%= image_tag 'programming.jpg', class: "hero__image" %>
     </div>
-    <div class="grid-item">
-      <div class="feature-card">
-        <i class="fas fa-comments"  style="color: var(--vibrant-blue)"></i>
-        <h3>Collaborative Feedback</h3>
-        <p>Engage with the community by providing feedback and comments on code snippets. Foster a supportive environment for learning and improvement.</p>
-      </div>
-    </div>
-  </div>
-</section>
-<%# Snippets  %>
-<section class="feature-section">
-  <h2 class="feature__title">Popular Snippets</h2>
-  <div class="feature-grid">
-    <% @snippets.each do |snippet| %>
-      <%= render 'code_snippets/card', snippet: snippet %>
-    <% end %>
-  </div>
-</section>
-<%# Contributors %>
-<section class="feature-section">
-  <h2 class="feature__title">Top Contributors</h2>
-  <div class="feature-grid">
-    <% @contributors.each do |user| %>
-      <%= link_to contributor_path(user) do %>
-        <div class="user-card">
-          <img src="<%= user.avatar_url%>" class="user-image">
-          <h3><%= user.name%></h3>
-          <p class="user-bio"><%= user.bio%></p>
-          <div class="user-value-container">
-            <div class="user-values">
-              <p class="value">
-                15
-              </p>
-              <p class="value-name">
-                Followers
-              </p>
-            </div>
-            <div class="user-values">
-              <p class="value">
-                <%= user.code_snippets_counter || 0 %>
-              </p>
-              <p class="value-name">
-                Snippets
-              </p>
-            </div>
-            <div class="user-values">
-              <p class="value">
-                4
-              </p>
-              <p class="value-name">
-                Comments
-              </p>
-            </div>
-          </div>
-          <button class="view-profile">
-            View Profile
-          </button>
+  </section>
+  <section class="feature-section">
+    <h2 class="feature__title">Enhance Your Coding Experience</h2>
+    <div class="feature-grid">
+      <div class="grid-item">
+        <div class="feature-card">
+          <i class="fas fa-code" style="color: var(--fresh-green)"></i>
+          <h3>Code Snippet Sharing</h3>
+          <p>Share your code snippets with the community. Easily upload, organize, and showcase your solutions to inspire and educate fellow developers.</p>
         </div>
-      <% end %>
-    <% end %>
-  </div>
-</section>
-<footer class="footer">
-  <div>
-    <h2>Snippit</h2>
-    <div class="social-bar">
-      <i class="fa-brands fa-square-facebook"></i>
-      <i class="fa-brands fa-square-twitter"></i>
-      <i class="fa-brands fa-linkedin"></i>
+      </div>
+      <div class="grid-item">
+        <div class="feature-card">
+          <i class="fas fa-lightbulb" style="color: var(--golden-yellow)"></i>
+          <h3>Inspiration and Learning</h3>
+          <p>Explore an extensive collection of code snippets contributed by the community. Gain insights, learn new techniques, and discover programming possibilities.</p>
+        </div>
+      </div>
+      <div class="grid-item">
+        <div class="feature-card">
+          <i class="fas fa-comments"  style="color: var(--vibrant-blue)"></i>
+          <h3>Collaborative Feedback</h3>
+          <p>Engage with the community by providing feedback and comments on code snippets. Foster a supportive environment for learning and improvement.</p>
+        </div>
+      </div>
     </div>
-  </div>
-  <nav class="footer-nav">
-    <ul class="footer-nav__ul">
-      <li>Home</li>
-      <li>Snippets</li>
-      <li>Contributors</li>
-      <li>About</li>
-    </ul>
-  </nav>
-  <div>
-    <div></div>
-    <p>Copyright 2023. All Rights Reserved</p>
-  </div>
-</footer>
+  </section>
+  <%# Snippets  %>
+  <section class="feature-section">
+    <h2 class="feature__title">Popular Snippets</h2>
+    <div class="feature-grid">
+      <% @snippets.each do |snippet| %>
+        <%= render 'code_snippets/card', snippet: snippet %>
+      <% end %>
+    </div>
+  </section>
+  <%# Contributors %>
+  <section class="feature-section">
+    <h2 class="feature__title">Top Contributors</h2>
+    <div class="feature-grid">
+      <% @contributors.each do |user| %>
+        <%= link_to contributor_path(user) do %>
+          <div class="user-card">
+            <img src="<%= user.avatar_url%>" class="user-image">
+            <h3><%= user.name%></h3>
+            <p class="user-bio"><%= user.bio%></p>
+            <div class="user-value-container">
+              <div class="user-values">
+                <p class="value">
+                  15
+                </p>
+                <p class="value-name">
+                  Followers
+                </p>
+              </div>
+              <div class="user-values">
+                <p class="value">
+                  <%= user.code_snippets_counter || 0 %>
+                </p>
+                <p class="value-name">
+                  Snippets
+                </p>
+              </div>
+              <div class="user-values">
+                <p class="value">
+                  4
+                </p>
+                <p class="value-name">
+                  Comments
+                </p>
+              </div>
+            </div>
+            <button class="view-profile">
+              View Profile
+            </button>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </section>
+</main>
+<%= render 'shared/footer' %>

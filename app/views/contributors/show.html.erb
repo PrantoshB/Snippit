@@ -1,24 +1,20 @@
-<%= render 'public/header' %>
-
 <section class="page-container">
-    <div class="contributor">
-        <div class="contributor-left">
-            <img src="<%= @contributor.avatar_url%>" class="user-image contributor-details-image">
-            <h3 class="contributor-title"><%= @contributor.name %></h3>
-            <p class="contributor-bio"><%= @contributor.bio %></p>
-            <% if current_user == @contributor %>
-                <%= link_to edit_contributor_path(@contributor) do %>
-                <i class="fa-solid fa-pen edit-profile"></i>
-                <% end %>                
-            <% end %>
-        </div>
-        <div class="contributor-right">
-
-                <% @contributor.code_snippets.each do |snippet| %>
-                    <div class="contributor-snippets">
-                     <%= render 'card', snippet: snippet %>
-                     </div>
-                <% end %>
-            
+  <div class="contributor">
+    <div class="contributor-left">
+      <img src="<%= @contributor.avatar_url%>" class="user-image contributor-details-image">
+      <h3 class="contributor-title"><%= @contributor.name %></h3>
+      <p class="contributor-bio"><%= @contributor.bio %></p>
+      <% if current_user == @contributor %>
+        <%= link_to edit_contributor_path(@contributor) do %>
+          <i class="fa-solid fa-pen edit-profile"></i>
+        <% end %>
+      <% end %>
     </div>
-</section>
+    <div class="contributor-right">
+      <% @contributor.code_snippets.each do |snippet| %>
+        <div class="contributor-snippets">
+          <%= render 'card', snippet: snippet %>
+        </div>
+      <% end %>
+    </div>
+  </section>

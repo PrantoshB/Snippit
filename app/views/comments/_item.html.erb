@@ -7,13 +7,7 @@
   <div class="comment__content">
     <header class="comment__header">
       <div class="comment__infos">
-        <div class="author-icon">
-          <% if comment.user.avatar_url %>
-            <img src="<%= comment.user.avatar_url%>">
-          <% else %>
-            <span><%= comment.user.name[0].upcase %></span>
-          <% end %>
-        </div>
+        <%= render 'shared/author_icon', author: comment.user %>
         <div>
           <%= link_to contributor_path(comment.user) do %>
             <p class="comment__author"><%= comment.user.name %></p>

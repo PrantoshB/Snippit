@@ -1,0 +1,14 @@
+<div class="snippet__actions">
+  <%= link_to code_snippet_path(snippet), class: "snippet__btn star-btn" do %>
+    <i class="fa-regular fa-star"></i> Star
+  <% end %>
+  <%= link_to code_snippet_path(snippet), class: "snippet__btn comment-btn" do %>
+    <i class="fa-regular fa-comment-dots"></i> Comment
+  <% end %>
+  <%= link_to code_snippet_path(snippet), class: "snippet__btn bookmark-btn" do %>
+    <i class="fa-regular fa-bookmark"></i> Bookmark
+  <% end %>
+  <%= link_to code_snippet_path(snippet), class: "snippet__btn copy-btn" do %>
+    <i class="fa-solid fa-link"></i> Copy
+  <% end %>
+</div>

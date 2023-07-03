@@ -1,5 +1,4 @@
-<%= render 'public/header' %>
-<section class="page-container snippet-page">
+<main class="page-container snippet-page">
   <section class="snippet-container">
     <header class="snippet-container__header">
       <%# Button to back to snippet index page %>
@@ -11,6 +10,7 @@
         <i class="fa-solid fa-pen"></i> Edit
       <% end %>
     </header>
+    <%# Snippet Component %>
     <article class="snippet">
       <header class="snippet__header">
         <h2 class="snippet__title"><%= @snippet.title %></h2>
@@ -23,29 +23,18 @@
       <blockquote>
         <p class="snippet__description"><%= @snippet.description %></p>
       </blockquote>
-      <pre><code class=<%= "language-" + @snippet.language %>><%= @snippet.code %></code></pre>
+      <%= render 'code_snippets/code_block', snippet: @snippet %>
       <%# Metrics about snippet %>
       <div class="snippet__metrics">
         <p><%= pluralize(@snippet.stars_counter, 'Star') %></p>
         <p><%= pluralize(@snippet.comments_counter, 'Comment') %></p>
       </div>
       <%# Actions bar for snippet: Star, comment, bookmark , share%>
-      <div class="snippet__actions">
-        <%= link_to code_snippet_path(@snippet), class: "snippet__btn star-btn" do %>
-          <i class="fa-regular fa-star"></i> Star
-        <% end %>
-        <%= link_to code_snippet_path(@snippet), class: "snippet__btn comment-btn" do %>
-          <i class="fa-regular fa-comment-dots"></i> Comment
-        <% end %>
-        <%= link_to code_snippet_path(@snippet), class: "snippet__btn bookmark-btn" do %>
-          <i class="fa-regular fa-bookmark"></i> Bookmark
-        <% end %>
-        <%= link_to code_snippet_path(@snippet), class: "snippet__btn copy-btn" do %>
-          <i class="fa-solid fa-link"></i> Copy
-        <% end %>
-      </div>
+      <%= render 'code_snippets/actions', snippet: @snippet %>
     </article>
+    <%# Form to add a comment %>
     <%= render 'comments/form', snippet: @snippet, comment: Comment.new %>
+    <%# Comments for snippet %>
     <section class="comment-section">
       <% if @snippet.comments.empty? %>
         <p>No one has commented yet!</p>
@@ -58,14 +47,15 @@
       <% end %>
     </section>
   </section>
+  <%# Sidebar %>
   <aside>
-    <section class="snippet-sidebar">
+    <div class="snippet-sidebar">
       <%# Contributor card %>
       <%= link_to contributor_path(@snippet.user) do %>
         <div class="snippetAuthorCard">
           <span>Author</span>
           <figure class="snippetAuthorCard__figure">
-            <img src="<%= @snippet.user.avatar_url %>" alt="User Avatar" />
+            <%= render 'shared/author_icon', author: @snippet.user %>
             <figcaption class="snippetAuthorCard__infos">
               <h3 class="snippetAuthorCard__name"><%= @snippet.user.name %></h3>
               <p class="snippetAuthorCard__bio"><%= @snippet.user.bio %></p>
@@ -73,6 +63,6 @@
           </figure>
         </div>
       <% end %>
-    </section>
+    </div>
   </aside>
-</section>
+</main>
