@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :code_snippets, path: 'snippets' do 
     resources :stars, only: [:create, :destroy]
+    resources :bookmarks, only: [:create, :destroy]
     resources :ratings, only: [:new, :create, :destroy, :edit, :update]
     resources :comments, only: [:create, :destroy, :edit, :update]
   end
