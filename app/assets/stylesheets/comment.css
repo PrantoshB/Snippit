@@ -24,12 +24,16 @@
   padding: 0.5rem 1rem;
   background-color: #fff;
   resize: none;
-  transition: all 0.3s ease;
+  transition: all 0.1s ease;
 }
 
 .comment-form textarea:focus {
   outline: none;
   box-shadow: var(--shadow-inset);
+}
+
+.comment-form:focus-within {
+  box-shadow: var(--ring-focus);
 }
 
 .comment-form input[type='submit'] {

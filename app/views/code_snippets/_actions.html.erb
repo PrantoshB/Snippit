@@ -15,9 +15,9 @@
     <% end %>
   </div>
   <%# Button to comment on the snippet %>
-  <%= link_to code_snippet_path(snippet), class: "snippet__btn comment-btn" do %>
+  <button type="button" class="snippet__btn comment-btn" data-focus-comment>
     <i class="fa-regular fa-comment-dots"></i> Comment
-  <% end %>
+  </button>
   <%# Toggle button to bookmark the snippet %>
   <div>
     <% if bookmark %>

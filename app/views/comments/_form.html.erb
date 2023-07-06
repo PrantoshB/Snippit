@@ -1,7 +1,7 @@
 <div class="comment-form">
   <%= render 'shared/author_icon', author: snippet.user %>
   <%= form_for [snippet, comment], url: code_snippet_comments_path(snippet) do |form| %>
-    <%= form.text_area :content, required: true, size: "10x2", placeholder: "Write your comment" %>
+    <%= form.text_area :content, required: true, size: "10x2", maxlength: 200, placeholder: "Write your comment", id: "comment-textarea" %>
     <%= form.submit "Add Comment"%>
   <% end %>
 </div>
