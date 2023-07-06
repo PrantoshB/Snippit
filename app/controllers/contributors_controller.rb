@@ -5,6 +5,7 @@ class ContributorsController < ApplicationController
 
   def show
     @contributor = User.find(params[:id])
+    @starred_code_snippets = CodeSnippet.starred_by(@contributor)
   end
 
   def edit

@@ -10,13 +10,14 @@ class CodeSnippet < ApplicationRecord
   before_create :increase_counter, :set_default_values
   before_destroy :decrease_counter
 
-  def update_stars_counter
-    update(stars_counter: ratings.average(:stars))
-  end
-
   def self.most_popular(limit = 3)
     order(stars_counter: :desc).limit(limit)
   end
+
+  def self.starred_by(user)
+    joins(:stars).where(stars: { user: user })
+  end
+
 
   private
 

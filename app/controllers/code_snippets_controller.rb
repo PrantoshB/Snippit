@@ -1,5 +1,5 @@
 class CodeSnippetsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:create, :update, :destroy]
 
   def index
     @code_snippets = CodeSnippet.all

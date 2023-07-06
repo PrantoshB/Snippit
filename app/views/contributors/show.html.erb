@@ -9,6 +9,17 @@
           <i class="fa-solid fa-pen edit-profile"></i>
         <% end %>
       <% end %>
+      <%# Displays a list of starred snippets for this user #%>
+      <section style="margin: 80px 20px 0 0; border-top: solid 1px #ccc; padding: 4px;">
+        <h4 style="margin-bottom: 10px;">Starred Snippets</h4>
+        <ul style="text-decoration: underline 2px solid purple; display: grid; gap: 5px;">
+          <% @starred_code_snippets.each do |snippet| %>
+            <li>
+              <%= link_to snippet.title, code_snippet_path(snippet), class: "contributor-snippet" %>
+            </li>
+          <% end %>
+        </ul>
+      </section>
     </div>
     <div class="contributor-right">
       <% @contributor.code_snippets.each do |snippet| %>
