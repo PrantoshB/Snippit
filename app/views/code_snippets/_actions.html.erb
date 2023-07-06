@@ -31,7 +31,7 @@
     <% end %>
   </div>
   <%# Button to copy the snippet link %>
-  <%= link_to code_snippet_path(snippet), class: "snippet__btn copy-btn" do %>
+  <button type="button" class="snippet__btn copy-btn" data-copy-link>
     <i class="fa-solid fa-link"></i> Copy
-  <% end %>
+  </button>
 </div>

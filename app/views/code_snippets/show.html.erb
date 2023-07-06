@@ -6,8 +6,10 @@
         <i class="fa-solid fa-arrow-left"></i> Back
       <% end %>
       <%# Button to edit snippet %>
-      <%= link_to edit_code_snippet_path(@code_snippet), class: "edit-btn" do %>
-        <i class="fa-solid fa-pen"></i> Edit
+      <% if @code_snippet.user == current_user %>
+        <%= link_to edit_code_snippet_path(@code_snippet), class: "edit-btn" do %>
+          <i class="fa-solid fa-pen"></i> Edit
+        <% end %>
       <% end %>
     </header>
     <%# Snippet Component %>

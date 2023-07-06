@@ -268,11 +268,12 @@
 }
 
 /* *** Snippet Form  */
-
+/* TODO Redesign Snippet Form */
 .snippet-form {
   width: 80%;
   margin: auto;
   max-width: 800px;
+  border: var(--border-light);
   border-radius: 8px;
   background-color: #fff;
   box-shadow: 52px 55px 133px rgba(0, 0, 0, 0.11);
@@ -304,17 +305,17 @@
   width: 100%;
   padding: 1rem;
   font-size: 1rem;
-  border: none;
+  border: var(--border-light);
   border-radius: 5px;
   background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  box-shadow: var(--shadow-inset);
+  transition: all 0.1s ease;
 }
 
 .snippet-form input[type='text']:focus,
 .snippet-form select:focus {
   outline: none;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--ring-focus);
 }
 
 .snippet-form textarea {
@@ -323,17 +324,17 @@
   resize: vertical;
   padding: 1rem;
   font-size: 1rem;
-  border: none;
+  border: var(--border-light);
   border-radius: 5px;
   background-color: #fff;
   font-family: inherit;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-inset);
   transition: all 0.3s ease;
 }
 
 .snippet-form textarea:focus {
   outline: none;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--ring-focus);
 }
 
 .snippet-form ::placeholder {
