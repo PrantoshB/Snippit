@@ -18,11 +18,11 @@ class User < ApplicationRecord
   end
 
   def find_star(code_snippet)
-    stars.find_by(code_snippet: code_snippet)
+    stars.find_by(code_snippet:)
   end
 
   def find_bookmark(code_snippet)
-    bookmarks.find_by(code_snippet: code_snippet)
+    bookmarks.find_by(code_snippet:)
   end
 
   private

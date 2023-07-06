@@ -15,11 +15,11 @@ class CodeSnippet < ApplicationRecord
   end
 
   def self.starred_by(user)
-    joins(:stars).where(stars: { user: user })
+    joins(:stars).where(stars: { user: })
   end
 
   def self.bookmarked_by(user)
-    joins(:bookmarks).where(bookmarks: { user: user })
+    joins(:bookmarks).where(bookmarks: { user: })
   end
 
   private
