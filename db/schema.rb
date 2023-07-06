@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_06_081432) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_06_095844) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookmarks", force: :cascade do |t|
+    t.bigint "code_snippet_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["code_snippet_id"], name: "index_bookmarks_on_code_snippet_id"
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
+  end
 
   create_table "code_snippets", force: :cascade do |t|
     t.string "title"
@@ -76,6 +85,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_06_081432) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookmarks", "code_snippets"
+  add_foreign_key "bookmarks", "users"
   add_foreign_key "code_snippets", "users"
   add_foreign_key "comments", "code_snippets"
   add_foreign_key "comments", "users"

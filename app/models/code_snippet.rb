@@ -2,7 +2,7 @@ class CodeSnippet < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_many :stars, dependent: :destroy
-  has_many :ratings, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
 
   validates :title, presence: true, length: { maximum: 50 }
   validates :description, presence: true, length: { maximum: 300 }
@@ -18,6 +18,9 @@ class CodeSnippet < ApplicationRecord
     joins(:stars).where(stars: { user: user })
   end
 
+  def self.bookmarked_by(user)
+    joins(:bookmarks).where(bookmarks: { user: user })
+  end
 
   private
 
