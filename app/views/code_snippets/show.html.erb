@@ -6,41 +6,41 @@
         <i class="fa-solid fa-arrow-left"></i> Back
       <% end %>
       <%# Button to edit snippet %>
-      <%= link_to edit_code_snippet_path(@snippet), class: "edit-btn" do %>
+      <%= link_to edit_code_snippet_path(@code_snippet), class: "edit-btn" do %>
         <i class="fa-solid fa-pen"></i> Edit
       <% end %>
     </header>
     <%# Snippet Component %>
     <article class="snippet">
       <header class="snippet__header">
-        <h2 class="snippet__title"><%= @snippet.title %></h2>
+        <h2 class="snippet__title"><%= @code_snippet.title %></h2>
         <div class="snippet__metadata">
-          <p><%= @snippet.created_at.strftime("%b %e, %Y") %></p>
+          <p><%= @code_snippet.created_at.strftime("%b %e, %Y") %></p>
           <i class="fa-solid fa-code-commit"></i>
-          <p><%= @snippet.language %></p>
+          <p><%= @code_snippet.language %></p>
         </div>
       </header>
       <blockquote>
-        <p class="snippet__description"><%= @snippet.description %></p>
+        <p class="snippet__description"><%= @code_snippet.description %></p>
       </blockquote>
-      <%= render 'code_snippets/code_block', snippet: @snippet %>
+      <%= render 'code_snippets/code_block', snippet: @code_snippet %>
       <%# Metrics about snippet %>
       <div class="snippet__metrics">
-        <p><%= pluralize(@snippet.stars_counter, 'Star') %></p>
-        <p><%= pluralize(@snippet.comments_counter, 'Comment') %></p>
+        <p><%= pluralize(@code_snippet.stars_counter, 'Star') %></p>
+        <p><%= pluralize(@code_snippet.comments_counter, 'Comment') %></p>
       </div>
       <%# Actions bar for snippet: Star, comment, bookmark , share%>
-      <%= render 'code_snippets/actions', snippet: @snippet %>
+      <%= render 'code_snippets/actions', snippet: @code_snippet %>
     </article>
     <%# Form to add a comment %>
-    <%= render 'comments/form', snippet: @snippet, comment: Comment.new %>
+    <%= render 'comments/form', snippet: @code_snippet, comment: Comment.new %>
     <%# Comments for snippet %>
     <section class="comment-section">
-      <% if @snippet.comments.empty? %>
+      <% if @code_snippet.comments.empty? %>
         <p>No one has commented yet!</p>
       <% else %>
         <section class="comment-list">
-          <% @snippet.comments.each do |comment| %>
+          <% @code_snippet.comments.each do |comment| %>
             <%= render 'comments/item', comment: comment %>
           <% end %>
         </section>
@@ -51,14 +51,14 @@
   <aside>
     <div class="snippet-sidebar">
       <%# Contributor card %>
-      <%= link_to contributor_path(@snippet.user) do %>
+      <%= link_to contributor_path(@code_snippet.user) do %>
         <div class="snippetAuthorCard">
           <span>Author</span>
           <figure class="snippetAuthorCard__figure">
-            <%= render 'shared/author_icon', author: @snippet.user %>
+            <%= render 'shared/author_icon', author: @code_snippet.user %>
             <figcaption class="snippetAuthorCard__infos">
-              <h3 class="snippetAuthorCard__name"><%= @snippet.user.name %></h3>
-              <p class="snippetAuthorCard__bio"><%= @snippet.user.bio %></p>
+              <h3 class="snippetAuthorCard__name"><%= @code_snippet.user.name %></h3>
+              <p class="snippetAuthorCard__bio"><%= @code_snippet.user.bio %></p>
             </figcaption>
           </figure>
         </div>

@@ -1,7 +1,15 @@
 <div class="snippet__actions">
-  <%= link_to code_snippet_path(snippet), class: "snippet__btn star-btn" do %>
-    <i class="fa-regular fa-star"></i> Star
-  <% end %>
+  <div>
+    <% if current_user.starred?(snippet) %>
+      <%= button_to code_snippet_star_path(snippet, current_user.find_star(snippet)), method: :delete, remote: true, class: "snippet__btn star-btn" do %>
+        <i class="fa-solid fa-star"></i> Starred
+      <% end %>
+    <% else %>
+      <%= button_to code_snippet_stars_path(snippet), method: :post, remote: true, class: "snippet__btn star-btn" do %>
+        <i class="fa-regular fa-star"></i> Star
+      <% end %>
+    <% end %>
+  </div>
   <%= link_to code_snippet_path(snippet), class: "snippet__btn comment-btn" do %>
     <i class="fa-regular fa-comment-dots"></i> Comment
   <% end %>

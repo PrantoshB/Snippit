@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :code_snippets, dependent: :destroy
+  has_many :stars, dependent: :destroy
   has_many :ratings, dependent: :destroy
   has_many :comments, dependent: :destroy
 
@@ -14,6 +15,14 @@ class User < ApplicationRecord
 
   def self.top_contributors(limit = 3)
     order(code_snippets_counter: :desc).limit(limit)
+  end
+
+  def starred?(code_snippet)
+    stars.exists?(code_snippet: code_snippet)
+  end
+
+  def find_star(code_snippet)
+    stars.find_by(code_snippet: code_snippet)
   end
 
   private
