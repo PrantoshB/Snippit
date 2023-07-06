@@ -1,7 +1,8 @@
 .comment-form {
-  max-width: 800px;
-  margin: 1rem auto;
+  width: 100%;
+  margin: 1rem 0;
   background-color: #fff;
+  border: var(--border-light);
   border-radius: 8px;
   padding: 1rem;
   display: flex;
@@ -19,7 +20,7 @@
   flex: 1;
   font-size: 1rem;
   border-radius: 4px;
-  border-color: #ccc5;
+  border: none;
   padding: 0.5rem 1rem;
   background-color: #fff;
   resize: none;
@@ -28,11 +29,11 @@
 
 .comment-form textarea:focus {
   outline: none;
-  box-shadow: 0 3px 8px #3335;
+  box-shadow: var(--shadow-inset);
 }
 
 .comment-form input[type='submit'] {
-  background-color: cornflowerblue;
+  background-color: var(--accent-color-1);
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -40,7 +41,7 @@
   font-size: 1rem;
   cursor: pointer;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease-in;
+  transition: all 0.1s ease-in;
 }
 
 .comment-form input[type='submit']:hover {
@@ -49,9 +50,6 @@
 }
 
 /* Comment List  */
-.comment-section h3 {
-  margin-bottom: 1rem;
-}
 
 .comment-list {
   display: flex;
@@ -59,16 +57,17 @@
   gap: 0.5rem;
 }
 
-.comment-item {
+.comment {
   display: flex;
   align-items: center;
   gap: 2rem;
-  padding: 1rem;
+  padding: 0.25rem;
   background-color: #fff;
-  border-radius: 4px;
+  border: var(--border-light);
+  border-radius: 12px;
 }
 
-.comment-info-box {
+.comment__content {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -76,28 +75,33 @@
   font-size: 0.8rem;
 }
 
-.comment-header {
+.comment__header {
   display: flex;
   justify-content: space-between;
 }
 
-.comment-meta {
+.comment__infos {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
-.comment-author-name {
+.comment__author {
   font-weight: 500;
-  font-size: 1.2em;
+  font-size: 1.1rem;
 }
 
-.comment-body {
+.comment__date {
+  color: var(--gray);
+  font-size: var(--fontSmall);
+}
+
+.comment__body {
   padding: 0.25rem;
   font-size: 1.3em;
 }
 
-.comment-voting-box {
+.comment__voting {
   display: flex;
   flex-direction: column;
   background-color: #eee4;
@@ -108,7 +112,7 @@
   color: blueviolet;
 }
 
-.comment-voting-box button {
+.comment__voting button {
   width: 30px;
   font-size: 1.5em;
   color: #aaa;
@@ -116,8 +120,8 @@
   background: none;
 }
 
-.comment-voting-box button:hover,
-.comment-voting-box button:active {
+.comment__voting button:hover,
+.comment__voting button:active {
   transform: scale(1.2);
 }
 

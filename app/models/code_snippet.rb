@@ -6,11 +6,15 @@ class CodeSnippet < ApplicationRecord
   validates :title, presence: true, length: { maximum: 50 }
   validates :description, presence: true, length: { maximum: 300 }
 
-  after_save :increase_counter
+  before_create :increase_counter, :set_default_values
   before_destroy :decrease_counter
 
   def update_stars_counter
     update(stars_counter: ratings.average(:stars))
+  end
+
+  def self.most_popular(limit = 3)
+    order(stars_counter: :desc).limit(limit)
   end
 
   private
@@ -21,5 +25,10 @@ class CodeSnippet < ApplicationRecord
 
   def decrease_counter
     user.decrement!(:code_snippets_counter)
+  end
+
+  def set_default_values
+    self.stars_counter ||= 0
+    self.comments_counter ||= 0
   end
 end

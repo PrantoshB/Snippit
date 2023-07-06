@@ -1,47 +1,43 @@
-<%= render 'public/header' %>
 <div class="user-page-container">
-
   <h1>Contributors</h1>
-  
   <div class="users-container">
     <% @contributors.each do |user| %>
-    <%= link_to contributor_path(user) do %>
-    <div class="user-card">
-      <img src="<%= user.avatar_url%>" class="user-image">
-        <h3><%= user.name%></h3>
-        <p class="user-bio"><%= user.bio%></p>
-        <div class="user-value-container">
-          <div class="user-values">
-            <p class="value">
-              15
-            </p>
-            <p class="value-name">
-              Followers
-            </p>
+      <%= link_to contributor_path(user) do %>
+        <div class="user-card">
+          <img src="<%= user.avatar_url%>" class="user-image">
+          <h3><%= user.name%></h3>
+          <p class="user-bio"><%= user.bio%></p>
+          <div class="user-value-container">
+            <div class="user-values">
+              <p class="value">
+                15
+              </p>
+              <p class="value-name">
+                Followers
+              </p>
+            </div>
+            <div class="user-values">
+              <p class="value">
+                9
+              </p>
+              <p class="value-name">
+                Snippets
+              </p>
+            </div>
+            <div class="user-values">
+              <p class="value">
+                4
+              </p>
+              <p class="value-name">
+                Comments
+              </p>
+            </div>
           </div>
-          <div class="user-values">
-            <p class="value">
-              9
-            </p>
-            <p class="value-name">
-              Snippets
-            </p>
-          </div>
-          <div class="user-values">
-            <p class="value">
-              4
-            </p>
-            <p class="value-name">
-              Comments
-            </p>
-          </div>
+          <button class="view-profile">
+            View Profile
+          </button>
         </div>
-        <button class="view-profile">
-          View Profile
-        </button>
-    </div>
-    <% end %>
+      <% end %>
     <% end %>
   </div>
 </div>
-  

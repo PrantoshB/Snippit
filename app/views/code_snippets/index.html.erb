@@ -1,13 +1,11 @@
-<%= render 'public/header' %>
-<section class="page-container">
-    <h2 class="page__heading">All Snippets</h2>
-    <% if @code_snippets.empty? %>
-        <p>No one has uploaded any code yet!</p>
-    <% else %>
+<main class="page-container">
+  <% if @code_snippets.empty? %>
+    <p>No one has uploaded any code yet!</p>
+  <% else %>
     <div class="snippet-grid">
-        <% @code_snippets.each do |snippet| %>
-            <%= render 'card', snippet: snippet %>
-        <% end %>
+      <% @code_snippets.each do |snippet| %>
+        <%= render 'card', snippet: snippet %>
+      <% end %>
     </div>
-    <% end %>
-</section>
+  <% end %>
+</main>

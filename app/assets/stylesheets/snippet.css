@@ -9,18 +9,19 @@
 }
 
 .snippet-item {
+  position: relative;
   background-color: #fff;
+  border: var(--border-light);
   padding: 1rem;
   border-radius: 4px;
   max-height: 300px;
   display: grid;
   gap: 0.5rem;
-  cursor: pointer;
   transition: all 0.2s ease-in;
 }
 
 .snippet-item:hover {
-  box-shadow: 10px 18px 25px rgba(140, 98, 143, 0.29);
+  box-shadow: var(--shadow-hover);
 }
 
 .snippet-item__header {
@@ -29,15 +30,36 @@
   gap: 0.5rem;
 }
 
+.snippet-item__show-btn {
+  position: absolute;
+  top: 1rem;
+  right: 3rem;
+  display: block;
+  background-color: var(--accent-color-1);
+  padding: 0.5rem;
+  border-radius: 4px;
+  color: #f0f0f0;
+  opacity: 0;
+  transition: all 0.2s ease-in;
+}
+
+.snippet-item__show-btn:hover {
+  box-shadow: 3px 6px 10px rgba(140, 98, 143, 0.29);
+}
+
+.snippet-item:hover .snippet-item__show-btn {
+  opacity: 1;
+}
+
 .snippet-item__menu-btn {
   background: none;
   border: none;
   width: 30px;
   height: 30px;
   padding: 1px;
+  margin-left: auto;
   border-radius: 6px;
   font-size: 1.6rem;
-  margin-left: auto;
   transition: all 0.2s ease;
 }
 
@@ -53,15 +75,6 @@
   font-weight: 500;
 }
 
-.link-arrow {
-  color: #6200ee;
-  display: none;
-}
-
-.snippet-item:hover .link-arrow {
-  display: block;
-}
-
 .snippet-item pre {
   width: 100%;
   height: 100%;
@@ -75,29 +88,174 @@
 
 /* *** Snippet Show Page  */
 
-.snippet {
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
+.snippet-page {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+}
+
+.snippet-container {
+  border: var(--border-light);
+  border-radius: 8px;
+  padding: 2rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.snippet-container__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.back-btn,
+.edit-btn {
+  display: block;
+  border: solid 1px #aaa5;
+  border-radius: 4px;
+  padding: 0.25rem;
+  color: #333;
+  min-width: 100px;
+  text-align: center;
+  transition: all 0.2s ease-in;
+}
+
+.back-btn:hover,
+.edit-btn:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-1px);
+}
+
+/* Snippet Section */
+
+.snippet__header {
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
 }
 
 .snippet__title {
-  margin-bottom: 1.5rem;
   font-size: 1.8rem;
 }
 
-.snippet__meta {
+.snippet__metadata {
   display: flex;
-  gap: 1.2rem;
-  margin: 1rem 0.5rem;
-  font-size: 1.2rem;
-  font-weight: 500;
+  font-size: var(--fontSmall);
+  color: var(--gray);
+}
+
+.snippet__metadata > i {
+  margin: 0 0.2rem 0 0.5rem;
 }
 
 .snippet__description {
   padding: 0.5rem;
   background-color: #fff;
+}
+
+.snippet__metrics {
+  display: flex;
+  gap: 1rem;
+  margin: 2rem 0 0.5rem;
+  color: var(--gray);
+  font-size: var(--fontSmall);
+}
+
+/* Snippet actions container */
+.snippet__actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1rem;
+  border: var(--border-light);
+  border-radius: 8px;
+}
+
+.snippet__btn {
+  display: block;
+  flex: 1;
+  text-align: center;
+  background-color: #fff;
+  color: #333;
+  transition: all 0.2s;
+}
+
+.snippet__btn i {
+  font-size: 1.2em;
+  transition: all 0.2s;
+}
+
+.snippet__btn:hover {
+  color: #666;
+}
+
+.star-btn i {
+  color: var(--golden-yellow);
+}
+
+.comment-btn i {
+  color: var(--vibrant-blue);
+}
+
+.bookmark-btn i {
+  color: var(--bold-pink);
+}
+
+.copy-btn i {
+  color: var(--fresh-green);
+}
+
+.snippet__btn:hover i {
+  transform: scale(1.1);
+}
+
+/* Sidebar  */
+
+.snippet-sidebar {
+  min-width: 300px;
+}
+
+.snippetAuthorCard {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.5rem;
+  background-color: #fff;
+  border-radius: 8px;
+  border: var(--border-light);
+  transition: box-shadow 0.2s ease-in;
+}
+
+.snippetAuthorCard:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.snippetAuthorCard > span {
+  font-size: 0.8rem;
+  color: #aaa;
+  font-weight: 500;
+}
+
+.snippetAuthorCard__figure {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.snippetAuthorCard__figure img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.snippetAuthorCard__name {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.snippetAuthorCard__bio {
+  font-size: 0.9rem;
+  color: #555;
 }
 
 /* *** Snippet Form  */
