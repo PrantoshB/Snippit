@@ -9,20 +9,10 @@
           <p class="user-bio"><%= user.bio%></p>
           <div class="user-value-container">
             <div class="user-values">
-              <p class="value">
-                15
-              </p>
               <p class="value-name">
-                Followers
+               <%= user.code_snippets_counter || 0 %>  Snippets
               </p>
-            </div>
-            <div class="user-values">
-              <p class="value">
-                9
-              </p>
-              <p class="value-name">
-                Snippets
-              </p>
+
             </div>
             <div class="user-values">
               <p class="value">
