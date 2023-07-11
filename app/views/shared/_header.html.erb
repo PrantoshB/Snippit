@@ -1,5 +1,7 @@
 <header class="main-header">
-  <%= link_to "Snippit", root_path, class: "brand"%>
+  <%= link_to root_path, class: "brand" do%>
+    <h1><i class="fa-solid fa-code"></i>Snippit</h1>
+  <% end %>
   <nav class="nav">
     <ul class="nav__ul">
       <li><%= link_to "Snippets", code_snippets_path, class: "nav__link" %></li>
