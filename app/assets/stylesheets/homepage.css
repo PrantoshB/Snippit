@@ -1,70 +1,16 @@
-/* *** Header Bar  */
-
-.main-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #fff;
-  color: #333;
-  padding: 0.25rem 1rem;
-}
-
-.brand {
-  font-family: Helvetica, sans-serif;
-  font-size: 2.4rem;
-  font-weight: 700;
-  text-transform: lowercase;
-  margin-right: 3rem;
-}
-
-.nav {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.nav__ul {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-  margin: 0;
-  padding: 0.5rem;
-}
-
-.nav__link {
-  color: #555;
-  font-weight: 500;
-  transition: all 0.2s ease;
-}
-
-.nav__link:hover {
-  color: #000;
-}
-
-.btn-group {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.nav-btn {
-  border: solid 1px transparent;
-  border-radius: 10px;
-  transition: all 0.2s ease-in;
-}
-
-.nav-btn:hover {
-  border-color: #333;
-  transform: translateY(-2px);
-  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
-}
-
 .hero-section {
   background-color: #fff;
   min-height: 80vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
+}
+
+.hero__title {
+  font-family: var(--headingFont);
+  font-weight: 400;
+  font-size: 1.5em;
+  letter-spacing: 0.15rem;
 }
 
 .hero__content {

@@ -1,12 +1,12 @@
 class CodeSnippetsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: %i[show create update destroy]
 
   def index
     @code_snippets = CodeSnippet.all
   end
 
   def show
-    @snippet = CodeSnippet.includes(:comments).find(params[:id])
+    @code_snippet = CodeSnippet.includes(:comments).find(params[:id])
   end
 
   def new

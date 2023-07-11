@@ -1,7 +1,8 @@
 class CodeSnippet < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
-  has_many :ratings, dependent: :destroy
+  has_many :stars, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
 
   validates :title, presence: true, length: { maximum: 50 }
   validates :description, presence: true, length: { maximum: 300 }
@@ -9,12 +10,16 @@ class CodeSnippet < ApplicationRecord
   before_create :increase_counter, :set_default_values
   before_destroy :decrease_counter
 
-  def update_stars_counter
-    update(stars_counter: ratings.average(:stars))
-  end
-
   def self.most_popular(limit = 3)
     order(stars_counter: :desc).limit(limit)
+  end
+
+  def self.starred_by(user)
+    joins(:stars).where(stars: { user: })
+  end
+
+  def self.bookmarked_by(user)
+    joins(:bookmarks).where(bookmarks: { user: })
   end
 
   private

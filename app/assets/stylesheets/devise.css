@@ -1,6 +1,17 @@
 .auth-form-container {
   background-color: #fff;
-  padding: 1rem;
+  width: 100%;
+  max-width: 500px;
+  margin: 2rem auto 0;
+  border: var(--border-light);
+  border-radius: 8px;
+  box-shadow: var(--shadow-hover);
+  padding: 2rem 2rem 1rem;
+}
+
+.auth-form-container > h2 {
+  margin-bottom: 2rem;
+  font-weight: 700;
 }
 
 .auth-form-container form {
@@ -18,34 +29,72 @@
   gap: 0.25rem;
 }
 
-.form-control {
+input.form-control {
   width: 100%;
-  padding: 0.5rem;
+  font-family: var(--normalFont);
   font-size: 1.1rem;
+  padding: 0.75rem 0.5rem;
+  background: #fff;
+  border: var(--border-light);
+  border-radius: 4px;
+}
+
+input.form-control:focus {
+  outline: none;
+  box-shadow: 2px 3px 20px -15px var(--accent-color-1);
+}
+
+.auth-form-container .actions {
+  margin: 1rem 0 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.auth-btn {
+  background-color: #111827;
+  border: 1px solid transparent;
+  border-radius: 0.75rem;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.75rem 1.2rem;
+  text-align: center;
+  transition: all 0.2s ease-in;
+  width: 60%;
+  margin: 0 auto;
+  cursor: pointer;
+  user-select: none;
+}
+
+.auth-btn:hover {
+  background-color: #374151;
+}
+
+.auth-btn:focus {
+  box-shadow: none;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 
 .form-links {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   text-align: center;
-  margin-top: 1rem;
 }
 
 .form-links a {
   font-size: 1.1em;
   text-decoration: none;
-  color: blueviolet;
+  color: #333;
+  font-weight: 700;
   transition: all 0.3s ease;
 }
 
 .form-links a:hover {
-  color: darkblue;
+  color: #000;
   text-decoration: underline;
 }
 
 .form-links a:active {
-  color: #0d47a1;
+  color: #000;
   text-decoration: underline;
 }
 

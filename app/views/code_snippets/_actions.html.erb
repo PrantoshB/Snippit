@@ -1,14 +1,37 @@
 <div class="snippet__actions">
-  <%= link_to code_snippet_path(snippet), class: "snippet__btn star-btn" do %>
-    <i class="fa-regular fa-star"></i> Star
-  <% end %>
-  <%= link_to code_snippet_path(snippet), class: "snippet__btn comment-btn" do %>
+  <%# Variables to check if the snippet is starred or bookmarked %>
+  <% star = current_user.find_star(snippet) %>
+  <% bookmark = current_user.find_bookmark(snippet) %>
+  <%# Toggle button to star the snippet %>
+  <div>
+    <% if star %>
+      <%= button_to code_snippet_star_path(snippet, star), method: :delete, remote: true, class: "snippet__btn star-btn" do %>
+        <i class="fa-solid fa-star"></i> Starred
+      <% end %>
+    <% else %>
+      <%= button_to code_snippet_stars_path(snippet), method: :post, remote: true, class: "snippet__btn star-btn" do %>
+        <i class="fa-regular fa-star"></i> Star
+      <% end %>
+    <% end %>
+  </div>
+  <%# Button to comment on the snippet %>
+  <button type="button" class="snippet__btn comment-btn" data-focus-comment>
     <i class="fa-regular fa-comment-dots"></i> Comment
-  <% end %>
-  <%= link_to code_snippet_path(snippet), class: "snippet__btn bookmark-btn" do %>
-    <i class="fa-regular fa-bookmark"></i> Bookmark
-  <% end %>
-  <%= link_to code_snippet_path(snippet), class: "snippet__btn copy-btn" do %>
+  </button>
+  <%# Toggle button to bookmark the snippet %>
+  <div>
+    <% if bookmark %>
+      <%= button_to code_snippet_bookmark_path(snippet, bookmark), method: :delete, remote: true, class: "snippet__btn bookmark-btn" do %>
+        <i class="fa-solid fa-bookmark"></i> Saved
+      <% end %>
+    <% else %>
+      <%= button_to code_snippet_bookmarks_path(snippet), method: :post, remote: true, class: "snippet__btn bookmark-btn" do %>
+        <i class="fa-regular fa-bookmark"></i> Bookmark
+      <% end %>
+    <% end %>
+  </div>
+  <%# Button to copy the snippet link %>
+  <button type="button" class="snippet__btn copy-btn" data-copy-link>
     <i class="fa-solid fa-link"></i> Copy
-  <% end %>
+  </button>
 </div>
