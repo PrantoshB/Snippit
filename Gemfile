@@ -7,7 +7,6 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 
 gem 'rack-cors', require: 'rack/cors'
 
-# Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.4', '>= 7.0.4.3'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
