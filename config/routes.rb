@@ -8,8 +8,4 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :contributors do
-    resources :code_snippets, path: 'snippets', only: [:index]
-  end
-
 end
