@@ -10,6 +10,15 @@ module Snipit
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
+    config.api_onle = true
+    config.debug_exception_response_format = :default
+
+    config.middleware.insert_before ActionDispatch::Static, Rack::Cors do
+      allow do
+        origins '*'
+        resource '*', :headers => :any, :methods => [:get, :post, :options]
+      end
+    end
 
     # Configuration for the application, engines, and railties goes here.
     #
