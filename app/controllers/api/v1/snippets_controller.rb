@@ -1,6 +1,4 @@
 class Api::V1::SnippetsController < ApplicationController
-  before_action :authenticate_user!, only: %i[create update destroy]
-  before_action :set_snippet, only: %i[show update destroy]
 
   def index
     @snippets = Snippet.all

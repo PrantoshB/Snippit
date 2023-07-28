@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_28_171748) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_28_175050) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -33,6 +33,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_28_171748) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "snippet_tags", force: :cascade do |t|
+    t.bigint "snippet_id", null: false
+    t.bigint "tag_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["snippet_id"], name: "index_snippet_tags_on_snippet_id"
+    t.index ["tag_id"], name: "index_snippet_tags_on_tag_id"
+  end
+
   create_table "snippets", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -53,6 +62,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_28_171748) do
     t.datetime "updated_at", null: false
     t.index ["snippet_id"], name: "index_stars_on_snippet_id"
     t.index ["user_id"], name: "index_stars_on_user_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -80,6 +95,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_28_171748) do
   add_foreign_key "bookmarks", "users"
   add_foreign_key "comments", "snippets"
   add_foreign_key "comments", "users"
+  add_foreign_key "snippet_tags", "snippets"
+  add_foreign_key "snippet_tags", "tags"
   add_foreign_key "snippets", "users"
   add_foreign_key "stars", "snippets"
   add_foreign_key "stars", "users"

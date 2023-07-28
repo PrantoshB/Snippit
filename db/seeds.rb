@@ -1,6 +1,7 @@
 # Clear existing data
 User.destroy_all
 Snippet.destroy_all
+Tag.destroy_all
 
 # Create users
 user1 = User.create!(email: 'user1@example.com', password: 'password', name: 'Tommy', bio: 'Poor Developer', avatar_url: 'https://thumbs.dreamstime.com/b/face-portrait-very-happy-man-against-aqua-marine-blue-face-portrait-very-happy-man-against-aqua-marine-blue-color-background-204349508.jpg', admin: false)
@@ -25,16 +26,31 @@ snippet9 = Snippet.create!(user: user4, title: 'JavaScript Event Listener', desc
 snippet10 = Snippet.create!(user: user5, title: 'CSS Flexbox Layout', description: 'A CSS snippet demonstrating a basic flexbox layout', code: ".container {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}", language: 'CSS')
 
 # Create comments
-Comment.create(content: 'This is a great tutorial!', snippet: snippet4, user: user5)
-Comment.create(content: 'This is a great tutorial!', snippet: snippet3, user: user3)
-Comment.create(content: 'This is a great tutorial!', snippet: snippet1, user: user8)
-Comment.create(content: 'Thanks for sharing this!', snippet: snippet1, user: user7)
+Comment.create!(content: 'This is a great tutorial!', snippet: snippet4, user: user5)
+Comment.create!(content: 'This is a great tutorial!', snippet: snippet3, user: user3)
+Comment.create!(content: 'This is a great tutorial!', snippet: snippet1, user: user8)
+Comment.create!(content: 'Thanks for sharing this!', snippet: snippet1, user: user7)
 
 # Create bookmarks
-Bookmark.create(snippet: snippet1, user: user2)
-Bookmark.create(snippet: snippet3, user: user1)
+Bookmark.create!(snippet: snippet1, user: user2)
+Bookmark.create!(snippet: snippet3, user: user1)
 
 # Create stars (likes)
-Star.create(snippet: snippet1, user: user1)
-Star.create(snippet: snippet2, user: user2)
-Star.create(snippet: snippet3, user: user3)
+Star.create!(snippet: snippet1, user: user1)
+Star.create!(snippet: snippet2, user: user2)
+Star.create!(snippet: snippet3, user: user3)
+
+# Create tags
+tags = %w[Rails Ruby PHP Python JavaScript CSS WebDev GameDev Database Algorithm Array OOP Functional MVC REST DevOps]
+tags.each { |tag| Tag.create!(name: tag) }
+
+snippet1.tags << Tag.find_by(name: 'Ruby')
+snippet2.tags << Tag.find_by(name: 'Array')
+snippet3.tags << Tag.find_by(name: 'Algorithm')
+snippet4.tags << Tag.find_by(name: 'Algorithm')
+snippet5.tags << Tag.find_by(name: 'GameDev')
+snippet6.tags << Tag.find_by(name: 'PHP')
+snippet7.tags << Tag.find_by(name: 'Database')
+snippet8.tags << Tag.find_by(name: 'Python')
+snippet9.tags << Tag.find_by(name: 'JavaScript')
+snippet10.tags << Tag.find_by(name: 'CSS')
