@@ -1,4 +1,4 @@
-class CodeSnippet < ApplicationRecord
+class Snippet < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_many :stars, dependent: :destroy
@@ -25,11 +25,11 @@ class CodeSnippet < ApplicationRecord
   private
 
   def increase_counter
-    user.increment!(:code_snippets_counter)
+    user.increment!(:snippets_counter)
   end
 
   def decrease_counter
-    user.decrement!(:code_snippets_counter)
+    user.decrement!(:snippets_counter)
   end
 
   def set_default_values

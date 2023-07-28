@@ -1,6 +1,6 @@
 class Rating < ApplicationRecord
   belongs_to :user
-  belongs_to :code_snippet
+  belongs_to :snippet
 
   validates :stars, presence: true, numericality: { greater_than: 1, less_than_or_equal_to: 5, only_integer: true }
 
@@ -9,6 +9,6 @@ class Rating < ApplicationRecord
   private
 
   def update_stars
-    code_snippet.update_stars_counter
+    snippet.update_stars_counter
   end
 end
