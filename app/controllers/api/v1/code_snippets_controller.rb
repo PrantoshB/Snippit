@@ -1,5 +1,6 @@
 class Api::V1::CodeSnippetsController < ApplicationController
   before_action :authenticate_user!, only: %i[create update destroy]
+  before_action :set_code_snippet, only: %i[show update destroy]
 
   def index
     @code_snippets = CodeSnippet.all
@@ -7,38 +8,38 @@ class Api::V1::CodeSnippetsController < ApplicationController
   end
 
   def show
-    @code_snippet = CodeSnippet.includes(:comments).find(params[:id])
-    render json: @code_snippet
+    render json: @code_snippet, include: :comments
   end
 
   def create
     @code_snippet = CodeSnippet.new(snippet_params)
     @code_snippet.user = current_user
+
     if @code_snippet.save
       render json: { success: 'Snippet uploaded successfully!', code_snippet: @code_snippet }, status: :created
     else
-      render json: { error: 'Failed to upload snippet! Please try again' }, status: :unprocessable_entity
+      render json: { errors: @code_snippet.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
   def update
-    @code_snippet = CodeSnippet.find(params[:id])
-
-    if @code_snippet.update(snippet_params)
-      render json: { success: 'Snippet has been updated.', code_snippet: @code_snippet }
+    if current_user == @code_snippet.user
+      if @code_snippet.update(snippet_params)
+        render json: { success: 'Snippet has been updated.', code_snippet: @code_snippet }
+      else
+        render json: { errors: @code_snippet.errors.full_messages }, status: :unprocessable_entity
+      end
     else
-      render json: { error: @code_snippet.errors.full_messages.join('. ') }, status: :unprocessable_entity
+      render json: { error: 'You are not authorized to update this snippet.' }, status: :unauthorized
     end
   end
 
   def destroy
-    @code_snippet = CodeSnippet.find(params[:id])
-    @code_snippet.destroy
-
-    if @code_snippet.destroy
+    if current_user == @code_snippet.user
+      @code_snippet.destroy
       render json: { success: 'Your snippet has been removed.' }
     else
-      render json: { error: 'Failed to remove the snippet.' }, status: :unprocessable_entity
+      render json: { error: 'You are not authorized to remove this snippet.' }, status: :unauthorized
     end
   end
 
@@ -46,5 +47,10 @@ class Api::V1::CodeSnippetsController < ApplicationController
 
   def snippet_params
     params.require(:code_snippet).permit(:title, :description, :code, :language)
+  end
+
+  def set_code_snippet
+    @code_snippet = CodeSnippet.includes(:comments).find_by(id: params[:id])
+    render json: { error: 'Snippet not found.' }, status: :not_found unless @code_snippet
   end
 end
