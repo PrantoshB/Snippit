@@ -1,14 +1,13 @@
 class Api::V1::SnippetsController < ApplicationController
-
   def index
     @snippets = Snippet.includes(:user, :tags).all
     render json: @snippets.to_json(
-        only: [:id, :title, :description, :code, :language, :stars_counter, :comments_counter, :created_at],
-        include: {
-          tags: { only: [:id, :name] },
-          user: { only: [:id, :name, :bio, :avatar_url] }
-        }
-      )
+      only: %i[id title description code language stars_counter comments_counter created_at],
+      include: {
+        tags: { only: %i[id name] },
+        user: { only: %i[id name bio avatar_url] }
+      }
+    )
   end
 
   def show
