@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     namespace :v1 do 
       resources :snippets
       resources :contributors
+      resources :tags, only: [:index]
     end
   end
 
