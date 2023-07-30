@@ -83,6 +83,7 @@ test:
 #
 production:
   <<: *default
-  database: Snipit_production
-  username: Snipit
+  url: <%= ENV['DATABASE_URL'] %>
+  database: <%= ENV['DATABASE_NAME'] %>
+  username: <%= ENV['DATABASE_USER'] %>
   password: <%= ENV["SNIPIT_DATABASE_PASSWORD"] %>
