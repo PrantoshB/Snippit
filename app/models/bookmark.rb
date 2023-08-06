@@ -1,4 +1,4 @@
 class Bookmark < ApplicationRecord
-  belongs_to :code_snippet
+  belongs_to :snippet
   belongs_to :user
 end

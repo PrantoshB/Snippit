@@ -1,8 +1,10 @@
-class CodeSnippet < ApplicationRecord
+class Snippet < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_many :stars, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
+  has_many :snippet_tags, dependent: :destroy
+  has_many :tags, through: :snippet_tags
 
   validates :title, presence: true, length: { maximum: 50 }
   validates :description, presence: true, length: { maximum: 300 }
@@ -25,11 +27,11 @@ class CodeSnippet < ApplicationRecord
   private
 
   def increase_counter
-    user.increment!(:code_snippets_counter)
+    user.increment!(:snippets_counter)
   end
 
   def decrease_counter
-    user.decrement!(:code_snippets_counter)
+    user.decrement!(:snippets_counter)
   end
 
   def set_default_values

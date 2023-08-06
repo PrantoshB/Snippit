@@ -10,20 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_06_095844) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_28_175050) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bookmarks", force: :cascade do |t|
-    t.bigint "code_snippet_id", null: false
+    t.bigint "snippet_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["code_snippet_id"], name: "index_bookmarks_on_code_snippet_id"
+    t.index ["snippet_id"], name: "index_bookmarks_on_snippet_id"
     t.index ["user_id"], name: "index_bookmarks_on_user_id"
   end
 
-  create_table "code_snippets", force: :cascade do |t|
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "snippet_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["snippet_id"], name: "index_comments_on_snippet_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "snippet_tags", force: :cascade do |t|
+    t.bigint "snippet_id", null: false
+    t.bigint "tag_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["snippet_id"], name: "index_snippet_tags_on_snippet_id"
+    t.index ["tag_id"], name: "index_snippet_tags_on_tag_id"
+  end
+
+  create_table "snippets", force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.text "code"
@@ -33,35 +52,22 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_06_095844) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
-    t.index ["user_id"], name: "index_code_snippets_on_user_id"
-  end
-
-  create_table "comments", force: :cascade do |t|
-    t.text "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "code_snippet_id", null: false
-    t.bigint "user_id", null: false
-    t.index ["code_snippet_id"], name: "index_comments_on_code_snippet_id"
-    t.index ["user_id"], name: "index_comments_on_user_id"
-  end
-
-  create_table "ratings", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "user_id", null: false
-    t.bigint "code_snippet_id", null: false
-    t.index ["code_snippet_id"], name: "index_ratings_on_code_snippet_id"
-    t.index ["user_id"], name: "index_ratings_on_user_id"
+    t.index ["user_id"], name: "index_snippets_on_user_id"
   end
 
   create_table "stars", force: :cascade do |t|
-    t.bigint "code_snippet_id", null: false
+    t.bigint "snippet_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["code_snippet_id"], name: "index_stars_on_code_snippet_id"
+    t.index ["snippet_id"], name: "index_stars_on_snippet_id"
     t.index ["user_id"], name: "index_stars_on_user_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -71,7 +77,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_06_095844) do
     t.string "bio"
     t.string "avatar_url"
     t.boolean "admin"
-    t.bigint "code_snippets_counter"
+    t.bigint "snippets_counter"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -85,13 +91,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_06_095844) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "bookmarks", "code_snippets"
+  add_foreign_key "bookmarks", "snippets"
   add_foreign_key "bookmarks", "users"
-  add_foreign_key "code_snippets", "users"
-  add_foreign_key "comments", "code_snippets"
+  add_foreign_key "comments", "snippets"
   add_foreign_key "comments", "users"
-  add_foreign_key "ratings", "code_snippets"
-  add_foreign_key "ratings", "users"
-  add_foreign_key "stars", "code_snippets"
+  add_foreign_key "snippet_tags", "snippets"
+  add_foreign_key "snippet_tags", "tags"
+  add_foreign_key "snippets", "users"
+  add_foreign_key "stars", "snippets"
   add_foreign_key "stars", "users"
 end

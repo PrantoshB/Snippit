@@ -1,6 +1,6 @@
 class Comment < ApplicationRecord
   belongs_to :user
-  belongs_to :code_snippet
+  belongs_to :snippet
 
   validates :content, presence: true, length: { maximum: 150 }
 
@@ -10,10 +10,10 @@ class Comment < ApplicationRecord
   private
 
   def increase_counter
-    code_snippet.increment!(:comments_counter)
+    snippet.increment!(:comments_counter)
   end
 
   def decrease_counter
-    code_snippet.decrement!(:comments_counter)
+    snippet.decrement!(:comments_counter)
   end
 end

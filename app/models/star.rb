@@ -1,5 +1,5 @@
 class Star < ApplicationRecord
-  belongs_to :code_snippet
+  belongs_to :snippet
   belongs_to :user
 
   after_save :increase_stars
@@ -8,10 +8,10 @@ class Star < ApplicationRecord
   private
 
   def increase_stars
-    code_snippet.increment!(:stars_counter)
+    snippet.increment!(:stars_counter)
   end
 
   def decrese_stars
-    code_snippet.decrement!(:stars_counter)
+    snippet.decrement!(:stars_counter)
   end
 end
